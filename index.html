@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timothy Lonergan | AI Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(circle at top center, rgba(255,122,0,0.8) 0%, #0D0D0D 85%);
+    color: #fff;
+    text-align: center;
+  }
+  header {
+    padding: 50px 20px 20px;
+  }
+  h1 {
+    font-size: 2.5em;
+    background: linear-gradient(90deg, #FF7A00, #FF5500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 4s ease-in-out infinite;
+  }
+  @keyframes titleGlow {
+    0%,100% { text-shadow: 0 0 15px rgba(255,122,0,0.4); }
+    50% { text-shadow: 0 0 40px rgba(255,180,80,1); }
+  }
+  section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .project {
+    background: rgba(0,0,0,0.7);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: inset 0 0 10px rgba(255,122,0,0.3), 0 0 15px rgba(0,0,0,0.6);
+  }
+  .project img {
+    width: 160px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 25px rgba(255,122,0,0.6));
+    transition: all 0.5s ease-in-out;
+  }
+  .project img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 50px rgba(255,180,80,0.9));
+  }
+  .project h2 {
+    margin-bottom: 10px;
+    color: #FF7A00;
+  }
+  a {
+    color: #FF7A00;
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+  footer {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Timothy Lonergan — AI & Automation Portfolio</h1>
+  <p>Exploring applied AI through practical, design-focused projects.</p>
+</header>
+
+<section>
+  <div class="project">
+    <img src="droneshield_logo.png" alt="DroneShield Logo">
+    <h2>Tim’s DroneShield Chatbot</h2>
+    <p>An interactive AI assistant built with Streamlit, GPT-4, and custom RAG retrieval.  
+       It emulates branded knowledge responses for DroneShield using a polished interface with animated UI effects.</p>
+    <p><strong>Tech Stack:</strong> Streamlit | OpenAI GPT-4 | Python | ChromaDB | Sentence Transformers</p>
+    <p>
+      🔗 <a href="https://github.com/ProjectsforTim/Chatbot" target="_blank">View Code on GitHub</a> · 
+      🧠 <a href="https://your-live-demo-link" target="_blank">Try the Chatbot</a>
+    </p>
+  </div>
+
+  <div class="project">
+    <h2>Next Project Coming Soon</h2>
+    <p>Building additional AI workflow automation and computer-vision projects to expand this portfolio.</p>
+  </div>
+</section>
+
+<footer>
+  ⚠️ Independent projects built for educational and demonstration purposes. Not affiliated with any third party companies.
+</footer>
+
+</body>
+</html>
