@@ -18,7 +18,7 @@
       background: radial-gradient(circle at top center, rgba(255,122,0,0.95) 0%, #1a1a1a 95%);
       color: var(--text);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      scroll-behavior: smooth; /* smooth jump to anchors */
+      scroll-behavior: smooth;
     }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
 
@@ -155,9 +155,7 @@
       transform: scale(1.05);
     }
 
-    /* ===========================
-       Right-side Project Navigator
-       =========================== */
+    /* Right-side Project Navigator */
     .project-nav {
       position: fixed;
       top: 110px;
@@ -192,14 +190,13 @@
       color: #ffbb55;
     }
 
-    /* Push content slightly so nav doesn't overlap on very narrow screens */
     @media (max-width: 1200px) {
-      .project-nav { display: none; } /* hide nav on smaller screens */
+      .project-nav { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Right-side Project Navigator (non-intrusive, fixed) -->
+  <!-- Right-side Project Navigator -->
   <nav class="project-nav">
     <h4>Projects</h4>
     <a href="#dronechat">DroneShield Chatbot</a>
@@ -210,7 +207,6 @@
   </nav>
 
   <main class="wrap">
-    <!-- HEADER -->
     <h1>Timothy Lonergan — AI & Automation Portfolio</h1>
     <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
@@ -227,11 +223,9 @@
 
     <!-- PROJECT 1 -->
     <section id="dronechat" class="card project">
-      <!-- DroneShield logo -->
       <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
         <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
       </div>
-
       <style>
         .logo-centered {
           height: 50px;
@@ -243,28 +237,24 @@
           filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
         }
       </style>
-
       <h3>DroneShield AI Chatbot</h3>
       <p>
         A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
         from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
         external info when context is missing.
       </p>
-
       <div class="buttons">
         <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
       </div>
-
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
-
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
-        <span data-tooltip="Building dynamic web apps quickly using Python.">Streamlit</span>
-        <span data-tooltip="Programming for automation, data handling, and integration.">Python</span>
-        <span data-tooltip="Using vector databases for document-aware AI answers.">RAG (Retrieval-Augmented Generation)</span>
-        <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
+        <span>Prompt Engineering</span>
+        <span>Streamlit</span>
+        <span>Python</span>
+        <span>RAG (Retrieval-Augmented Generation)</span>
+        <span>OpenAI API Integration</span>
       </div>
     </section>
 
@@ -275,13 +265,12 @@
         A Roboflow powered pipeline that standardizes image labeling for computer vision datasets,
         featuring automated QA and export for YOLO-based training environments.
       </p>
-
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
-        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
-        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
-        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
+        <span>Data Annotation</span>
+        <span>Roboflow</span>
+        <span>YOLO Integration</span>
+        <span>Quality Assurance</span>
       </div>
     </section>
 
@@ -295,15 +284,15 @@
         intelligence monitoring for subscribed users.
       </p>
       <div class="buttons">
-        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" 
-           target="_blank" rel="noopener">Open Colab Notebook</a>
-      
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" target="_blank" rel="noopener">Open Colab Notebook</a>
+      </div>
+      <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Designing prompts for summarizing and extracting key information.">Prompt Engineering</span>
-        <span data-tooltip="Creating hands-off workflows for information delivery.">Automation</span>
-        <span data-tooltip="Developing and executing scripts in Google Colab.">Google Colab</span>
-        <span data-tooltip="Integrating Gmail or Google APIs for automated email sending.">Email API Integration</span>
-        <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
+        <span>Prompt Engineering</span>
+        <span>Automation</span>
+        <span>Google Colab</span>
+        <span>Email API Integration</span>
+        <span>Python Scripting</span>
       </div>
     </section>
 
@@ -322,29 +311,26 @@
         </a>
       </div>
       <details style="margin-top:18px;">
-        <summary style="cursor: pointer; font-weight: 600; color: #ffbb55; padding: 8px 0;">📄 Preview Document</summary>
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Document</summary>
         <div style="margin-top:10px;">
           <iframe src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
-                  width="100%" height="500px"
-                  style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+            width="100%" height="500px"
+            style="border-radius:12px;box-shadow:0 0 25px rgba(255,122,0,0.4);border:none;"></iframe>
         </div>
       </details>
-
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Creating structured documents that guide operational workflows.">Process Documentation</span>
-        <span data-tooltip="Designing accessible repositories of organizational knowledge.">Knowledge Management</span>
-        <span data-tooltip="Developing and maintaining procedural documentation.">Standard Operating Procedures</span>
-        <span data-tooltip="Structuring scalable workflows and communication channels.">Organizational Design</span>
+        <span>Process Documentation</span>
+        <span>Knowledge Management</span>
+        <span>Standard Operating Procedures</span>
+        <span>Organizational Design</span>
       </div>
     </section>
 
     <!-- PROJECT 5 -->
     <section id="sqldatabase" class="card project">
       <h3>SQL Training Database (coming soon)</h3>
-      <p>
-        Fully functional SQL database for a company to train their workforce on — currently in development.
-      </p>
+      <p>Fully functional SQL database for a company to train their workforce on — currently in development.</p>
     </section>
 
     <!-- CONTACT -->
@@ -358,7 +344,6 @@
   </main>
 
   <script>
-    // Fade-in the main screenshot when in view
     const shot = document.getElementById('chatbotDemo');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
@@ -367,4 +352,3 @@
   </script>
 </body>
 </html>
-
