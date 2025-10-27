@@ -1,110 +1,178 @@
-import streamlit as st
-import base64
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timothy Lonergan — AI & Automation Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0d0d;
+      --card:#1e1e1e;
+      --card-alpha:0.82;   /* transparency for project cards */
+      --text:#eaeaea;
+      --muted:#cfcfcf;
+      --orange:#ff7a00;
+      --orange-soft: rgba(255,122,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    /* Vignette background */
+    body::before{
+      content:"";
+      position:fixed;inset:0;
+      background:
+        radial-gradient(1200px 700px at 50% -200px, rgba(255,122,0,.45), transparent 60%),
+        radial-gradient(1600px 900px at 50% 120%, rgba(0,0,0,.9), transparent 60%),
+        linear-gradient(#0d0d0d, #0b0b0b);
+      z-index:-2;
+    }
+    body::after{
+      content:"";
+      position:fixed;inset:0;
+      background: radial-gradient(1200px 800px at 50% 50%, rgba(0,0,0,.35), transparent 60%);
+      z-index:-1; pointer-events:none;
+    }
 
-# ---------- PAGE CONFIG ----------
-st.set_page_config(page_title="Timothy Lonergan — AI & Automation Portfolio", page_icon="🧠", layout="centered")
+    .container{max-width:980px;margin:50px auto 80px;padding:0 24px}
 
-# ---------- STYLING ----------
-st.markdown("""
-    <style>
-        body {
-            background-color: #0d0d0d;
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-        }
+    /* Header / Title */
+    .title{
+      color:#000; /* black title as requested */
+      font-size:clamp(28px,4.2vw,46px);
+      font-weight:800;
+      text-align:center;
+      letter-spacing:.4px;
+      text-shadow: 0 0 20px rgba(255,122,0,.35);
+      margin: 10px 0 28px;
+      filter: drop-shadow(0 0 18px rgba(255,122,0,.2));
+    }
 
-        .main-title {
-            color: black;
-            font-size: 40px;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 40px;
-            text-shadow: 0px 0px 10px rgba(255, 122, 0, 0.3);
-        }
+    /* Section + Card */
+    .section, .card{
+      background: rgba(30,30,30,var(--card-alpha));
+      border-radius:14px;
+      padding:26px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.04) inset,
+        0 14px 28px rgba(0,0,0,.55),
+        0 0 38px var(--orange-soft);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    .section{margin:20px 0 28px}
+    .card{margin:26px 0 30px; transition: transform .25s ease, box-shadow .25s ease}
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.05) inset,
+        0 18px 36px rgba(0,0,0,.6),
+        0 0 50px rgba(255,122,0,.35);
+    }
 
-        .section {
-            background: rgba(50, 50, 50, 0.85);
-            border-radius: 10px;
-            padding: 30px;
-            margin: 40px auto;
-            width: 80%;
-            box-shadow: 0px 0px 25px rgba(255, 122, 0, 0.4);
-        }
+    h3{margin:0 0 12px;font-size:22px}
+    p{line-height:1.55;margin:0 0 12px;color:var(--muted)}
 
-        .project-card {
-            background: rgba(30, 30, 30, 0.78);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 30px auto;
-            width: 85%;
-            box-shadow: 0px 0px 18px rgba(255, 122, 0, 0.3);
-        }
+    .pill{
+      display:inline-flex;align-items:center;gap:.55rem;
+      font-weight:700;font-size:20px;color:#fff;margin-bottom:12px
+    }
+    .pill .dot{
+      width:10px;height:10px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px rgba(255,122,0,.9)
+    }
 
-        .project-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ff7a00;
-        }
+    .tech{margin-top:12px;font-size:14px;color:#d9d9d9}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 10px}
+    .btn{
+      appearance:none;border:0;border-radius:10px;
+      padding:10px 16px;font-weight:600;cursor:pointer;
+      background:linear-gradient(180deg, #ff8b24, #ff6d00);
+      color:#111; box-shadow:0 6px 18px rgba(255,122,0,.35);
+      text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+    .btn:hover{transform: translateY(-2px); box-shadow:0 10px 26px rgba(255,122,0,.45)}
+    .btn.secondary{
+      background: #2a2a2a; color:#f0f0f0; box-shadow:0 6px 18px rgba(0,0,0,.35);
+    }
+    .btn.secondary:hover{box-shadow:0 10px 26px rgba(0,0,0,.5)}
 
-        .project-subtitle {
-            font-size: 16px;
-            opacity: 0.85;
-        }
+    /* Media */
+    .media{
+      width:100%; border:0; border-radius:10px; overflow:hidden;
+      background:#0f0f0f;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .media img{display:block;width:100%;height:auto}
 
-        .demo-img {
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 0 25px rgba(255, 122, 0, 0.3);
-            width: 80%;
-        }
+    .footer{
+      text-align:center;color:#bdbdbd;font-size:13px;margin-top:32px;opacity:.85
+    }
 
-        .footer {
-            text-align: center;
-            font-size: 13px;
-            color: #cccccc;
-            margin-top: 60px;
-            opacity: 0.8;
-        }
-    </style>
-""", unsafe_allow_html=True)
+    /* Logo strip (optional) */
+    .logo-row{display:flex;align-items:center;gap:12px;margin:8px 0 4px}
+    .logo-row img{height:22px;filter: drop-shadow(0 0 6px rgba(255,122,0,.35))}
+  </style>
+</head>
+<body>
+  <main class="container">
 
-# ---------- HEADER ----------
-st.markdown("<div class='main-title'>Timothy Lonergan — AI & Automation Portfolio</div>", unsafe_allow_html=True)
+    <!-- Title -->
+    <h1 class="title">Timothy Lonergan — AI &amp; Automation Portfolio</h1>
 
-# ---------- ABOUT SECTION ----------
-st.markdown("""
-<div class='section'>
-    <h3>About</h3>
-    <p>I'm an AI and automation enthusiast focused on applying practical intelligence to solve real-world workflow challenges. 
-    My work blends project management with a strong interest in building applied AI systems — from intelligent assistants 
-    to automated document and data pipelines.</p>
-    <p>This portfolio showcases independent learning projects where I’ve applied modern tools like Streamlit, OpenAI’s GPT models, 
-    and vector retrieval frameworks to create functional prototypes.</p>
-</div>
-""", unsafe_allow_html=True)
+    <!-- About -->
+    <section class="section">
+      <h3>About</h3>
+      <p>I’m an AI and automation enthusiast focused on applying practical intelligence to solve real-world workflow challenges.
+        My background combines project leadership with hands-on prototyping of applied AI systems—from intelligent assistants to
+        automated document and data pipelines.</p>
+      <p>This portfolio highlights independent learning projects using tools like Streamlit, OpenAI’s GPT models, and retrieval techniques
+        to ship functional prototypes quickly.</p>
+    </section>
 
-# ---------- PROJECT 1 ----------
-st.markdown("""
-<div class='project-card'>
-    <div class='project-title'>🛡️ DroneShield Chatbot</div>
-    <p class='project-subtitle'>A custom-built company assistant prototype designed to simulate how a defense-technology firm could integrate 
-    a customer-facing AI chatbot trained on public website content. It uses a hybrid retrieval and GPT-based architecture for precision 
-    responses grounded in company context.</p>
-    <p><b>Tech:</b> Streamlit, Python, ChromaDB, Sentence Transformers, OpenAI GPT-4o</p>
-</div>
-""", unsafe_allow_html=True)
+    <!-- Project 1 -->
+    <article class="card">
+      <div class="pill"><span class="dot"></span>DroneShield Chat</div>
+      <p>A custom company assistant prototype showing how a defense-tech firm could integrate a website-aware AI chatbot. The app blends
+        lightweight retrieval with GPT-4o to answer questions grounded in publicly available company information, and falls back to general knowledge when needed.</p>
+      <p class="tech"><strong>Tech:</strong> Streamlit, Python, lightweight retrieval, OpenAI GPT-4o</p>
 
-# ---------- PROJECT 1 DEMO IMAGE ----------
-if "chatbotdemo.png":
-    try:
-        encoded_img = base64.b64encode(open("chatbotdemo.png", "rb").read()).decode()
-        st.markdown(f"""
-            <img src="data:image/png;base64,{encoded_img}" class="demo-img" alt="DroneShield Chatbot Demo">
-        """, unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.warning("⚠️ Demo image not found. Please add 'chatbotdemo.png' to your project folder.")
+      <div class="btn-row">
+        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app" target="_blank" rel="noopener">Open Live App</a>
+        <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+      </div>
 
-# ---------- FOOTER ----------
-st.markdown("<div class='footer'>© 2025 Timothy Lonergan | Built with Streamlit</div>", unsafe_allow_html=True)
+      <!-- optional logo row -->
+      <div class="logo-row">
+        <img src="assets/droneshield_logo.png" alt="DroneShield logo">
+      </div>
+
+      <!-- demo image -->
+      <div class="media">
+        <img src="assets/chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+      </div>
+    </article>
+
+    <!-- Project 2 (example) -->
+    <article class="card">
+      <div class="pill"><span class="dot"></span>Document QA Assistant</div>
+      <p>An internal helper tool that lets users upload PDFs and ask questions about the contents. Uses fast embedding + reranking to keep responses grounded and concise.</p>
+      <p class="tech"><strong>Tech:</strong> Python, Streamlit, Embeddings, Reranker, OpenAI</p>
+
+      <div class="btn-row">
+        <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
+        <a class="btn secondary" href="#" target="_blank" rel="noopener">View Source</a>
+      </div>
+
+      <div class="media">
+        <img src="assets/second_project.png" alt="Second project screenshot (optional)">
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <p class="footer">© 2025 Timothy Lonergan | Independent AI Projects</p>
+  </main>
+</body>
+</html>
 
