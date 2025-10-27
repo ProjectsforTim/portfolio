@@ -86,15 +86,8 @@
     }
 
     /* Skills */
-    .skills {
-      margin-top: 16px;
-      font-size: 14px;
-    }
-    .skills strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #ffbb55;
-    }
+    .skills { margin-top: 16px; font-size: 14px; }
+    .skills strong { display: block; margin-bottom: 6px; color: #ffbb55; }
     .skills span {
       background: rgba(255,122,0,0.2);
       border: 1px solid rgba(255,122,0,0.3);
@@ -218,10 +211,105 @@
       </p>
     </section>
 
-    <!-- EXISTING PROJECTS (unchanged above) -->
-    <!-- ... existing project sections here ... -->
+    <!-- PROJECT 1: DroneShield -->
+    <section id="dronechat" class="card project">
+      <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+        <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo">
+      </div>
+      <h3>DroneShield AI Chatbot</h3>
+      <p>
+        A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
+        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
+        external info when context is missing.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
+        <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+      </div>
+      <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
+        <span data-tooltip="Building dynamic web apps quickly using Python.">Streamlit</span>
+        <span data-tooltip="Programming for automation, data handling, and integration.">Python</span>
+        <span data-tooltip="Using vector databases for document-aware AI answers.">RAG (Retrieval-Augmented Generation)</span>
+        <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
+      </div>
+    </section>
 
-    <!-- DISPATCHING AUTOMATION PROJECT -->
+    <!-- PROJECT 2: Annotation -->
+    <section id="annotation" class="card project">
+      <h3>AI Data Annotation Pipeline (in progress)</h3>
+      <p>
+        A Roboflow powered pipeline that standardizes image labeling for computer vision datasets,
+        featuring automated QA and export for YOLO-based training environments.
+      </p>
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
+        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
+        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
+        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 3: Market Email -->
+    <section id="marketinfo" class="card project">
+      <h3>Market-Sensitive Information Automation Daily Email</h3>
+      <p>
+        An automated daily news delivery system built in Google Colab that fetches
+        and emails the latest market-relevant and business-sensitive news using Google API,
+        Python, and a lightweight email dispatch routine. Designed to streamline
+        intelligence monitoring for subscribed users.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" target="_blank" rel="noopener">
+          Open Colab Notebook
+        </a>
+      </div>
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Designing prompts for summarizing and extracting key information.">Prompt Engineering</span>
+        <span data-tooltip="Creating hands-off workflows for information delivery.">Automation</span>
+        <span data-tooltip="Developing and executing notebooks in Google Colab.">Google Colab</span>
+        <span data-tooltip="Integrating Gmail/Google APIs for automated email sending.">Email API Integration</span>
+        <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 4: Customer Solutions KB -->
+    <section id="customersolutions" class="card project">
+      <h3>Scaling Customer Solutions Knowledge Base</h3>
+      <p>
+        A strategic project proposal outlining how a defence technology company could scale its
+        customer service operations using a structured Knowledge Base and SOP framework.
+        The document demonstrates the design of tiered enquiry systems, verification flows,
+        and escalation protocols to support future team growth.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
+          View Full Document (PDF)
+        </a>
+      </div>
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Document</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Creating structured documents that guide operational workflows.">Process Documentation</span>
+        <span data-tooltip="Designing accessible repositories of organizational knowledge.">Knowledge Management</span>
+        <span data-tooltip="Developing and maintaining procedural documentation.">Standard Operating Procedures</span>
+        <span data-tooltip="Structuring scalable workflows and communication channels.">Organizational Design</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 5: Dispatching Automation (NEW) -->
     <section id="dispatching" class="card project">
       <h3>Dispatching Automation and Compliance Standardization</h3>
       <p>
@@ -238,11 +326,11 @@
       <details style="margin-top:18px;">
         <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📊 Preview Spreadsheet</summary>
         <div style="margin-top:10px;">
-          <iframe src="./Dispatching Automation tool.xlsx" width="100%" height="500px"
+          <!-- Note: GitHub Pages may not preview .xlsx in all browsers -->
+          <iframe src="./Dispatching Automation Tool.xlsx" width="100%" height="500px"
             style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
         </div>
       </details>
-
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
         <span data-tooltip="Building spreadsheet-based process automation tools.">Excel Automation</span>
@@ -253,7 +341,7 @@
       </div>
     </section>
 
-    <!-- SQL PROJECT (unchanged) -->
+    <!-- PROJECT 6: SQL DB -->
     <section id="sqldatabase" class="card project">
       <h3>SQL Training Database (coming soon)</h3>
       <p>Fully functional SQL database for a company to train their workforce on — currently in development.</p>
@@ -270,6 +358,23 @@
   </main>
 
   <script>
+    // Fade-in for chatbot screenshot
+    const shot = document.getElementById('chatbotDemo');
+    if (shot) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
+      }, { threshold: 0.25 });
+      obs.observe(shot);
+    }
+
+    // Ensure every skill chip has a tooltip
+    document.querySelectorAll('.skills span').forEach(span => {
+      if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
+        span.dataset.tooltip = span.textContent.trim();
+      }
+    });
+
+    // Right-side nav highlight for section in view
     const sections = [
       'dronechat',
       'annotation',
@@ -279,6 +384,7 @@
       'sqldatabase'
     ];
     const linkById = id => document.getElementById('lnk-' + id);
+
     const highlightObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const id = entry.target.id;
@@ -292,7 +398,8 @@
           link.classList.add('active');
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.5, rootMargin: "-10% 0px -40% 0px" });
+
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) highlightObserver.observe(el);
