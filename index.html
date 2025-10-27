@@ -90,4 +90,19 @@ This portfolio showcases independent learning projects where I’ve applied mode
 # ---------- PROJECT 1 ----------
 st.markdown("""
 <div class='project-card'>
-<h3>🛡️ DroneShield Chat
+<h3>🛡️ DroneShield Chatbot</h3>
+<p>
+A custom-built company assistant prototype designed to simulate how a defense-technology firm could integrate a customer-facing AI chatbot trained on public website content.
+It uses a hybrid retrieval and GPT-based architecture for precision responses grounded in company context.
+</p>
+<p><b>Tech:</b> Streamlit, Python, ChromaDB, Sentence Transformers, OpenAI GPT-4o</p>
+</div>
+""", unsafe_allow_html=True)
+
+# ---------- PROJECT 1 DEMO IMAGE ----------
+if "chatbotdemo.png":
+    encoded_img = base64.b64encode(open("chatbotdemo.png", "rb").read()).decode()
+    st.markdown(f"<img class='demo-img' src='data:image/png;base64,{encoded_img}' />", unsafe_allow_html=True)
+
+# ---------- FOOTER ----------
+st.markdown("<div class='footer'>© 2025 Timothy Lonergan | Independent AI Projects</div>", unsafe_allow_html=True)
