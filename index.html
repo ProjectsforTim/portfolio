@@ -6,220 +6,237 @@
   <title>Timothy Lonergan — AI & Automation Portfolio</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
+/* Cinematic drone animation: flies once, then hovers/bobs */
 .drone {
   position: absolute;
-  top: -20px;
-  left: -60px;
-  width: 48px;
+  top: -40px;
+  left: -150px;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 12px rgba(255,150,50,0.9));
+  z-index: 10;
+  animation: droneFlyOnce 6s ease-in-out 1, droneHover 4s ease-in-out infinite 6s;
+}
+
+@keyframes droneFlyOnce {
+  0% { transform: translateX(-200px) translateY(0) scale(0.9) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  50% { transform: translateX(250px) translateY(-20px) rotate(5deg); }
+  80% { transform: translateX(420px) translateY(0px) rotate(-3deg); opacity: 1; }
+  100% { transform: translateX(520px) translateY(0px) rotate(0deg); opacity: 1; }
+}
+
+@keyframes droneHover {
+  0%, 100% { transform: translateX(520px) translateY(0px) rotate(0deg); }
+  50% { transform: translateX(520px) translateY(-8px) rotate(1deg); }
+}
+
+.drone::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -80px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255,122,0,0.6), rgba(255,122,0,0));
+  border-radius: 4px;
+  opacity: 0;
+  filter: blur(3px);
+  animation: trail 6s ease-in-out 1;
+}
+
+@keyframes trail {
+  0%, 10% { opacity: 0; width: 0; }
+  20%, 70% { opacity: 0.6; width: 80px; }
+  90%, 100% { opacity: 0; width: 0; }
+}
+
+/* existing theme styles */
+:root {
+  --card-bg: rgba(0,0,0,0.55);
+  --card-shadow: 0 0 30px rgba(255,122,0,0.35);
+  --text: #f3f3f3;
+  --accent: #ffbb55;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top center, rgba(255,122,0,0.95) 0%, #1a1a1a 95%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+
+h1 {
+  color: #000;
+  text-align: center;
+  margin: 8px 0 8px;
+  font-size: 38px;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(255,150,50,0.8);
+  position: relative;
+}
+.subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
+
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  padding: 22px 24px;
+  margin: 26px 0;
+}
+.project { transition: transform .2s ease, box-shadow .2s ease; }
+.project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
+.project h3 { margin: 6px 0 10px; color: var(--accent); }
+
+.buttons { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+.btn {
+  background: #ff7a00;
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(255,122,0,0.35);
+}
+.btn.secondary {
+  background: #222;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+.logo {
   height: 48px;
-  animation: flyAcross 10s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(255,122,0,0.7));
+  margin: 6px 0 12px;
+  filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
+  transition: transform .25s ease, filter .25s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
 }
 
-@keyframes flyAcross {
-  0% {
-    transform: translateX(-100px) rotate(5deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(700px) rotate(-5deg);
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(1100px) rotate(5deg);
-    opacity: 0;
-  }
+.screenshot {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s ease, transform .8s ease;
 }
-    :root {
-      --card-bg: rgba(0,0,0,0.55);
-      --card-shadow: 0 0 30px rgba(255,122,0,0.35);
-      --text: #f3f3f3;
-      --accent: #ffbb55;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at top center, rgba(255,122,0,0.95) 0%, #1a1a1a 95%);
-      color: var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+.screenshot.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    h1 {
-      color: #000;
-      text-align: center;
-      margin: 8px 0 8px;
-      font-size: 38px;
-      font-weight: 800;
-      text-shadow: 0 2px 8px rgba(255,150,50,0.8);
-    }
-    .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
+/* Skills */
+.skills {
+  margin-top: 16px;
+  font-size: 14px;
+}
+.skills strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffbb55;
+}
+.skills span {
+  background: rgba(255,122,0,0.2);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 3px;
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+  position: relative;
+  cursor: help;
+}
+.skills span::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.skills span:hover::after { opacity: 1; }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 14px;
-      box-shadow: var(--card-shadow);
-      padding: 22px 24px;
-      margin: 26px 0;
-    }
-    .project { transition: transform .2s ease, box-shadow .2s ease; }
-    .project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
-    .project h3 { margin: 6px 0 10px; color: var(--accent); }
+footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
+.muted { color: #ddd; }
 
-    .buttons { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
-    .btn {
-      background: #ff7a00;
-      color: #111;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 0 18px rgba(255,122,0,0.35);
-    }
-    .btn.secondary {
-      background: #222;
-      color: #f0f0f0;
-      border: 1px solid #444;
-    }
+.linkedin-btn {
+  display: inline-block;
+  background: #0077b5;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0,119,181,0.4);
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+.linkedin-btn:hover {
+  background: #0091d5;
+  box-shadow: 0 0 25px rgba(0,119,181,0.6);
+  transform: scale(1.05);
+}
 
-    .logo {
-      height: 48px;
-      margin: 6px 0 12px;
-      filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
-      transition: transform .25s ease, filter .25s ease;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
-    }
+/* Right-side navigator */
+.project-nav {
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  width: 173px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 0 20px rgba(255,122,0,0.4);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+}
+.project-nav h4 {
+  color: #ffbb55;
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 16px;
+}
+.project-nav a {
+  display: block;
+  color: #f3f3f3;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+.project-nav a:hover {
+  background: rgba(255,122,0,0.25);
+  color: #ffbb55;
+}
+.project-nav a.active {
+  background: rgba(255,122,0,0.35);
+  color: #ffbb55;
+  box-shadow: 0 0 10px rgba(255,122,0,0.35) inset;
+}
 
-    .screenshot {
-      margin-top: 14px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-    .screenshot.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Skills */
-    .skills {
-      margin-top: 16px;
-      font-size: 14px;
-    }
-    .skills strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #ffbb55;
-    }
-    .skills span {
-      background: rgba(255,122,0,0.2);
-      border: 1px solid rgba(255,122,0,0.3);
-      border-radius: 6px;
-      padding: 4px 10px;
-      margin: 3px;
-      display: inline-block;
-      color: #fff;
-      font-size: 13px;
-      position: relative;
-      cursor: help;
-    }
-    .skills span::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-    }
-    .skills span:hover::after { opacity: 1; }
-
-    footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
-    .muted { color: #ddd; }
-
-    .linkedin-btn {
-      display: inline-block;
-      background: #0077b5;
-      color: white;
-      font-weight: 600;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(0,119,181,0.4);
-      transition: all 0.3s ease-in-out;
-      margin-top: 20px;
-    }
-    .linkedin-btn:hover {
-      background: #0091d5;
-      box-shadow: 0 0 25px rgba(0,119,181,0.6);
-      transform: scale(1.05);
-    }
-
-    /* Right-side navigator */
-    .project-nav {
-      position: fixed;
-      top: 110px;
-      right: 10px;             /* <- only change: was 24px */
-      width: 173px;            /* <- only change: was 220px */
-      background: rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,122,0,0.3);
-      border-radius: 10px;
-      padding: 14px 16px;
-      box-shadow: 0 0 20px rgba(255,122,0,0.4);
-      backdrop-filter: blur(6px);
-      z-index: 999;
-    }
-    .project-nav h4 {
-      color: #ffbb55;
-      margin: 0 0 10px;
-      text-align: center;
-      font-size: 16px;
-    }
-    .project-nav a {
-      display: block;
-      color: #f3f3f3;
-      text-decoration: none;
-      margin: 8px 0;
-      padding: 6px;
-      border-radius: 6px;
-      transition: background 0.3s ease, color 0.3s ease;
-      font-size: 14px;
-    }
-    .project-nav a:hover {
-      background: rgba(255,122,0,0.25);
-      color: #ffbb55;
-    }
-    /* Active highlight for the link of the section in view */
-    .project-nav a.active {
-      background: rgba(255,122,0,0.35);
-      color: #ffbb55;
-      box-shadow: 0 0 10px rgba(255,122,0,0.35) inset;
-    }
-
-    @media (max-width: 1200px) {
-      .project-nav { display: none; }
-    }
+@media (max-width: 1200px) {
+  .project-nav { display: none; }
+}
   </style>
 </head>
 
@@ -231,14 +248,25 @@
     <a href="#annotation" id="lnk-annotation">AI Data Annotation</a>
     <a href="#marketinfo" id="lnk-marketinfo">Market Email Automation</a>
     <a href="#customersolutions" id="lnk-customersolutions">Customer Solutions KB</a>
-    <!-- NEW: added to nav -->
     <a href="#dispatchingtool" id="lnk-dispatchingtool">Dispatching Automation Tool</a>
     <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
   </nav>
 
   <main class="wrap">
-    <h1> Timothy Lonergan — AI & Automation Portfolio
-  <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="drone" class="drone"></h1>
+    <h1>
+      Timothy Lonergan — AI & Automation Portfolio
+      <svg class="drone" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+        <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+        <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+      </svg>
+    </h1>
     <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
     <!-- ABOUT -->
@@ -269,7 +297,6 @@
         from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
         external info when context is missing.
       </p>
-
       <div class="buttons">
         <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
@@ -294,12 +321,10 @@
         Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
       </p>
 
-      <!-- ADDED: Colab button ABOVE the screenshot -->
       <div class="buttons">
         <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
       </div>
 
-      <!-- FIXED: make image visible immediately by adding 'visible' -->
       <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
 
       <div class="skills">
@@ -369,7 +394,7 @@
       </div>
     </section>
 
-    <!-- NEW PROJECT (between Customer Solutions and SQL DB) -->
+    <!-- PROJECT 5 -->
     <section id="dispatchingtool" class="card project">
       <h3>Dispatching Automation and Compliance Standardization</h3>
       <p>
@@ -386,7 +411,6 @@
       <details style="margin-top:18px;">
         <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📊 Preview Spreadsheet</summary>
         <div style="margin-top:10px;">
-          <!-- Office viewer embed against your GitHub Pages URL -->
           <iframe
             src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fprojectsfortim.github.io%2Fportfolio%2FDispatching_Automation_Tool.xlsx"
             width="100%" height="500px"
@@ -404,7 +428,7 @@
       </div>
     </section>
 
-    <!-- PROJECT 5 (now 6 overall) -->
+    <!-- PROJECT 6 -->
     <section id="sqldatabase" class="card project">
       <h3>SQL Training Database (coming soon)</h3>
       <p>Fully functional SQL database for a company to train their workforce on — currently in development.</p>
@@ -438,7 +462,7 @@
     });
 
     // Right-side nav highlighting for section in view
-  const sections = [
+    const sections = [
       'dronechat',
       'annotation',
       'marketinfo',
@@ -487,3 +511,4 @@
   </script>
 </body>
 </html>
+
