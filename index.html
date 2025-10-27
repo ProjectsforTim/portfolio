@@ -1,108 +1,133 @@
-import streamlit as st
-import base64
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timothy Lonergan — AI & Automation Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#141414; --bg2:#000000;
+      --card: rgba(0,0,0,0.55);           /* slightly more transparent */
+      --card-about: rgba(0,0,0,0.65);
+      --glow: rgba(255,122,0,0.35);
+      --glow-strong: rgba(255,180,80,0.60);
+      --text:#f1f1f1; --muted:#cfcfcf; --accent:#FF7A00; --accent-soft:#FF6600;
+      --ink:#000;                         /* black for title */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% -20%, var(--bg1) 0%, var(--bg2) 70%),
+        linear-gradient(180deg, #0b0b0b 0%, #000 100%);
+      position:relative;
+      overflow-x:hidden;
+    }
+    /* soft vignette */
+    body::after{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      box-shadow: inset 0 0 220px rgba(0,0,0,0.85);
+    }
 
-# ---------- PAGE CONFIG ----------
-st.set_page_config(page_title="Timothy Lonergan — AI & Automation Portfolio", page_icon="🧠", layout="centered")
+    .container{max-width:1100px; margin:0 auto; padding:32px 20px 60px}
 
-# ---------- STYLING ----------
-st.markdown("""
-    <style>
-        .stApp {
-            background: radial-gradient(circle at top, #141414 0%, #000000 90%);
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-            text-align: center;
-        }
+    /* Title */
+    .title{
+      color:var(--ink);
+      font-size:38px; font-weight:800;
+      line-height:1.15; text-align:center;
+      margin:8px 0 12px;
+      text-shadow:0 0 12px rgba(255,255,255,0.15);
+    }
 
-        /* Title */
-        .title {
-            color: black;
-            font-size: 38px;
-            font-weight: 800;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+    /* About */
+    .about{
+      background:var(--card-about);
+      border-radius:14px; padding:28px 26px;
+      margin:28px auto 18px; width:min(900px, 92%);
+      box-shadow:0 0 26px var(--glow);
+    }
+    .about h3{margin:0 0 10px; font-size:22px}
+    .about p{margin:8px 0; color:var(--muted); line-height:1.65}
 
-        /* About Section */
-        .about-card {
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px auto;
-            width: 80%;
-            box-shadow: 0 0 25px rgba(255,122,0,0.25);
-            text-align: left;
-        }
+    /* Project Card */
+    .project{
+      background:var(--card);
+      border-radius:14px; padding:22px 22px 28px;
+      margin:22px auto; width:min(1000px, 95%);
+      box-shadow:0 0 20px var(--glow);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .project:hover{ transform:translateY(-2px); box-shadow:0 0 36px var(--glow-strong) }
+    .project h3{display:flex; gap:10px; align-items:center; margin:0 0 10px}
+    .project h3 .dot{
+      width:12px; height:12px; border-radius:50%;
+      background:linear-gradient(180deg, var(--accent), var(--accent-soft));
+      box-shadow:0 0 10px var(--glow-strong);
+    }
+    .project p{margin:8px 0 12px; color:var(--muted); line-height:1.65}
 
-        /* Project Cards */
-        .project-card {
-            background: rgba(0, 0, 0, 0.55);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px auto;
-            width: 85%;
-            text-align: left;
-            box-shadow: 0 0 20px rgba(255,122,0,0.25);
-        }
+    .btn-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:6px}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      color:white; text-decoration:none; font-weight:600;
+      background:linear-gradient(90deg, var(--accent) 0%, var(--accent-soft) 100%);
+      box-shadow:0 0 16px rgba(255,122,0,0.35);
+      transition:filter .2s ease, transform .2s ease;
+    }
+    .btn:hover{filter:brightness(1.05); transform:translateY(-1px)}
 
-        .project-card:hover {
-            box-shadow: 0 0 35px rgba(255,180,80,0.6);
-            transform: scale(1.02);
-            transition: all 0.3s ease-in-out;
-        }
+    .demo{
+      display:block; width:min(950px, 95%); margin:14px auto 0;
+      border-radius:12px; box-shadow:0 0 26px var(--glow);
+    }
 
-        /* Demo Image */
-        .demo-img {
-            border-radius: 12px;
-            width: 80%;
-            margin-top: 15px;
-            box-shadow: 0 0 25px rgba(255,122,0,0.4);
-        }
+    /* Footer */
+    .footer{
+      text-align:center; color:#cfcfcf; opacity:.8;
+      font-size:13px; margin:40px 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Timothy Lonergan — AI & Automation Portfolio</h1>
 
-        /* Footer */
-        .footer {
-            color: #cccccc;
-            font-size: 13px;
-            margin-top: 40px;
-            opacity: 0.8;
-        }
-    </style>
-""", unsafe_allow_html=True)
+    <!-- ABOUT -->
+    <section class="about">
+      <h3>About</h3>
+      <p>I’m an AI and automation enthusiast focused on applying practical intelligence to solve real-world workflow challenges.
+         My background combines project leadership with hands-on prototyping of applied AI systems—from intelligent assistants to automated data pipelines.</p>
+      <p>This portfolio highlights independent learning projects using tools like Streamlit, OpenAI’s GPT models, and retrieval techniques to ship functional prototypes quickly.</p>
+    </section>
 
-# ---------- HEADER ----------
-st.markdown("<div class='title'>Timothy Lonergan — AI & Automation Portfolio</div>", unsafe_allow_html=True)
+    <!-- PROJECT 1 -->
+    <section class="project">
+      <h3><span class="dot"></span> DroneShield Chat</h3>
+      <p>
+        A custom company assistant prototype showing how a defense-tech firm could integrate a website-aware AI chatbot.
+        The app blends light retrieval with GPT-4o to answer questions grounded in publicly available company information,
+        and falls back to general knowledge when needed.
+      </p>
+      <p><strong>Tech:</strong> Streamlit, Python, lightweight retrieval, OpenAI GPT-4o</p>
 
-# ---------- ABOUT SECTION ----------
-st.markdown("""
-<div class='about-card'>
-<h3>About</h3>
-<p>
-I’m an AI and automation enthusiast focused on applying practical intelligence to solve real-world workflow challenges.  
-My work blends project management with a strong interest in building applied AI systems — from intelligent assistants to automated document and data pipelines.
-</p>
-<p>
-This portfolio showcases independent learning projects where I’ve applied modern tools like Streamlit, OpenAI’s GPT models, and vector retrieval frameworks to create functional prototypes.
-</p>
-</div>
-""", unsafe_allow_html=True)
+      <div class="btn-row">
+        <!-- Replace with your real links -->
+        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app" target="_blank" rel="noopener">Open Live App</a>
+        <a class="btn" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+      </div>
 
-# ---------- PROJECT 1 ----------
-st.markdown("""
-<div class='project-card'>
-<h3>🛡️ DroneShield Chatbot</h3>
-<p>
-A custom-built company assistant prototype designed to simulate how a defense-technology firm could integrate a customer-facing AI chatbot trained on public website content.
-It uses a hybrid retrieval and GPT-based architecture for precision responses grounded in company context.
-</p>
-<p><b>Tech:</b> Streamlit, Python, ChromaDB, Sentence Transformers, OpenAI GPT-4o</p>
-</div>
-""", unsafe_allow_html=True)
+      <!-- Demo screenshot -->
+      <img class="demo" src="images/chatbotdemo.png" alt="DroneShield Chat demo screenshot" />
+    </section>
 
-# ---------- PROJECT 1 DEMO IMAGE ----------
-if "chatbotdemo.png":
-    encoded_img = base64.b64encode(open("chatbotdemo.png", "rb").read()).decode()
-    st.markdown(f"<img class='demo-img' src='data:image/png;base64,{encoded_img}' />", unsafe_allow_html=True)
-
-# ---------- FOOTER ----------
-st.markdown("<div class='footer'>© 2025 Timothy Lonergan | Independent AI Projects</div>", unsafe_allow_html=True)
+    <p class="footer">© 2025 Timothy Lonergan | Independent AI Projects</p>
+  </main>
+</body>
+</html>
