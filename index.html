@@ -6,6 +6,35 @@
   <title>Timothy Lonergan — AI & Automation Portfolio</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
+.drone {
+  position: absolute;
+  top: -20px;
+  left: -60px;
+  width: 48px;
+  height: 48px;
+  animation: flyAcross 10s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255,122,0,0.7));
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(-100px) rotate(5deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(700px) rotate(-5deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1100px) rotate(5deg);
+    opacity: 0;
+  }
+}
     :root {
       --card-bg: rgba(0,0,0,0.55);
       --card-shadow: 0 0 30px rgba(255,122,0,0.35);
@@ -208,7 +237,8 @@
   </nav>
 
   <main class="wrap">
-    <h1>Timothy Lonergan — AI & Automation Portfolio</h1>
+    <h1> Timothy Lonergan — AI & Automation Portfolio
+  <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="drone" class="drone"></h1>
     <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
     <!-- ABOUT -->
