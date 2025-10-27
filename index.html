@@ -38,19 +38,32 @@
     margin: 20px 0;
     box-shadow: inset 0 0 10px rgba(255,122,0,0.3), 0 0 15px rgba(0,0,0,0.6);
   }
-  .project img {
+  .project img.logo {
     width: 160px;
     margin-bottom: 10px;
     filter: drop-shadow(0 0 25px rgba(255,122,0,0.6));
     transition: all 0.5s ease-in-out;
   }
-  .project img:hover {
+  .project img.logo:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 50px rgba(255,180,80,0.9));
   }
   .project h2 {
     margin-bottom: 10px;
     color: #FF7A00;
+  }
+  .screenshot {
+    margin-top: 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,122,0,0.5);
+    box-shadow: 0 0 20px rgba(255,122,0,0.3);
+    width: 100%;
+    max-width: 720px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  }
+  .screenshot:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255,180,80,0.8);
   }
   a {
     color: #FF7A00;
@@ -75,7 +88,7 @@
 
 <section>
   <div class="project">
-    <img src="droneshield_logo.png" alt="DroneShield Logo">
+    <img src="droneshield_logo.png" alt="DroneShield Logo" class="logo">
     <h2>Tim’s DroneShield Chatbot</h2>
     <p>An interactive AI assistant built with Streamlit, GPT-4 fallback if needed, and custom RAG retrieval.  
        It emulates branded knowledge responses for DroneShield using a polished interface with animated UI effects.</p>
@@ -84,6 +97,8 @@
       🔗 <a href="https://github.com/ProjectsforTim/Chatbot" target="_blank">View Code on GitHub</a> · 
       🧠 <a href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank">Try the Chatbot</a>
     </p>
+    <!-- Screenshot demo section -->
+    <img src="chatbotdemo.png" alt="DroneShield Chatbot Demo" class="screenshot">
   </div>
 
   <div class="project">
