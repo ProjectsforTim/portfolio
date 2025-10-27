@@ -65,14 +65,15 @@
     }
 
     /* Logo hover glow */
-    .logo-centered {
-      height: 50px;
-      filter: drop-shadow(0 0 25px rgba(255,122,0,0.7));
-      transition: all 0.4s ease-in-out;
+    .logo {
+      height: 48px;
+      margin: 6px 0 12px;
+      filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
+      transition: transform .25s ease, filter .25s ease;
     }
-    .logo-centered:hover {
+    .logo:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
+      filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
     }
 
     /* Screenshot */
@@ -90,7 +91,7 @@
       transform: translateY(0);
     }
 
-    /* Skills */
+    /* Skills Section */
     .skills {
       margin-top: 16px;
       font-size: 14px;
@@ -174,9 +175,23 @@
 
     <!-- PROJECT 1 -->
     <section class="card project">
+      <!-- DroneShield logo -->
       <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
         <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
       </div>
+
+      <style>
+        .logo-centered {
+          height: 50px;
+          filter: drop-shadow(0 0 25px rgba(255,122,0,0.7));
+          transition: all 0.4s ease-in-out;
+        }
+        .logo-centered:hover {
+          transform: scale(1.05);
+          filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
+        }
+      </style>
+
       <h3>DroneShield AI Chatbot</h3>
       <p>
         A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
@@ -292,4 +307,3 @@
   </script>
 </body>
 </html>
-
