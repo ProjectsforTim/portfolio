@@ -6,25 +6,33 @@
   <title>Timothy Lonergan — AI & Automation Portfolio</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
-    :root {
-      --card-bg: rgba(0, 0, 0, 0.55);
+    :root{
+      --card-bg: rgba(0,0,0,0.55);
       --card-shadow: 0 0 30px rgba(255,122,0,0.35);
       --text: #f3f3f3;
       --accent: #ffbb55;
     }
     html, body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       background: radial-gradient(circle at top center, rgba(255,122,0,0.95) 0%, #1a1a1a 95%);
       color: var(--text);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* Header */
     h1 {
-      color: #000; text-align: center; margin: 8px 0 12px;
-      font-size: 38px; font-weight: 800;
+      color: #000;                /* <-- black title as requested */
+      text-align: center;
+      margin: 8px 0 8px;
+      font-size: 38px;
+      font-weight: 800;
       text-shadow: 0 2px 8px rgba(255,150,50,0.8);
     }
     .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
+
+    /* Cards */
     .card {
       background: var(--card-bg);
       border-radius: 14px;
@@ -32,46 +40,88 @@
       padding: 22px 24px;
       margin: 26px 0;
     }
+    .card h2 { margin: 6px 0 10px; }
+
+    /* Projects */
     .project { transition: transform .2s ease, box-shadow .2s ease; }
     .project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
     .project h3 { margin: 6px 0 10px; color: var(--accent); }
+
     .buttons { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
     .btn {
-      background: #ff7a00; color: #111; border: none; padding: 10px 14px;
-      border-radius: 8px; font-weight: 600; text-decoration: none;
+      background: #ff7a00;
+      color: #111;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
       box-shadow: 0 0 18px rgba(255,122,0,0.35);
     }
-    .btn.secondary { background: #222; color: #f0f0f0; border: 1px solid #444; }
-    .screenshot {
-      margin-top: 14px; width: 100%; border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    .btn.secondary {
+      background: #222;
+      color: #f0f0f0;
+      border: 1px solid #444;
     }
+
+    /* Logo hover glow */
+    .logo {
+      height: 48px;
+      margin: 6px 0 12px;
+      filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
+      transition: transform .25s ease, filter .25s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
+    }
+
+    /* Screenshot */
+    .screenshot {
+      margin-top: 14px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .screenshot.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
+    .muted { color: #ddd; }
   </style>
 </head>
 <body>
   <main class="wrap">
+    <!-- HEADER -->
     <h1>Timothy Lonergan — AI & Automation Portfolio</h1>
     <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section class="card">
       <h2>About Me</h2>
       <p>
-        I'm an AI and automation enthusiast with a background in project management and process design.
+        I’m an AI and automation enthusiast with a background in project management and process design.
         I focus on building intelligent tools that improve efficiency, accuracy, and access to knowledge.
         This portfolio highlights my transition into AI through applied projects like autonomous chatbots,
         data annotation pipelines, and real-time information retrieval systems.
       </p>
     </section>
 
-    <!-- Project 1 -->
+    <!-- PROJECT 1 -->
     <section class="card project">
+      <!-- DroneShield logo (hover glow) -->
+      <img src="./droneshield_logo.png" alt="DroneShield logo" class="logo">
+
       <h3>DroneShield AI Chatbot</h3>
       <p>
         A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
-        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified external
-        info when context is missing.
+        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
+        external info when context is missing.
       </p>
 
       <div class="buttons">
@@ -79,11 +129,11 @@
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
       </div>
 
-      <!-- Screenshot (shows only if file exists) -->
-      <img class="screenshot" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+      <!-- Demo screenshot -->
+      <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
     </section>
 
-    <!-- Project 2 (placeholder) -->
+    <!-- PROJECT 2 (placeholder) -->
     <section class="card project">
       <h3>AI Data Annotation Pipeline (in progress)</h3>
       <p>
@@ -92,9 +142,16 @@
       </p>
     </section>
 
-    <footer>© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
+    <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
   </main>
+
+  <script>
+    // Fade-in the screenshot when it enters view
+    const shot = document.getElementById('chatbotDemo');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
+    }, { threshold: 0.25 });
+    if (shot) obs.observe(shot);
+  </script>
 </body>
 </html>
-
-st.markdown("<div class='footer'>© 2025 Timothy Lonergan | AI & Automation Portfolio</div>", unsafe_allow_html=True)
