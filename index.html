@@ -23,7 +23,7 @@
 
     /* Header */
     h1 {
-      color: #000;                /* <-- black title as requested */
+      color: #000;
       text-align: center;
       margin: 8px 0 8px;
       font-size: 38px;
@@ -93,6 +93,25 @@
 
     footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     .muted { color: #ddd; }
+
+    /* LinkedIn Button */
+    .linkedin-btn {
+      display: inline-block;
+      background: #0077b5;
+      color: white;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(0,119,181,0.4);
+      transition: all 0.3s ease-in-out;
+      margin-top: 20px;
+    }
+    .linkedin-btn:hover {
+      background: #0091d5;
+      box-shadow: 0 0 25px rgba(0,119,181,0.6);
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -114,28 +133,22 @@
 
     <!-- PROJECT 1 -->
     <section class="card project">
-      <!-- DroneShield logo (hover glow) -->
+      <!-- DroneShield logo -->
       <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
-  <img src="./droneshield_logo.png"
-       alt="DroneShield Logo"
-       class="logo-centered">
-</div>
+        <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
+      </div>
 
-<style>
-  .logo-centered {
-    height: 50px;
-    filter: drop-shadow(0 0 25px rgba(255,122,0,0.7));
-    transition: all 0.4s ease-in-out;
-  }
-  .logo-centered:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
-  }
-</style>
-
-
-
-</div>
+      <style>
+        .logo-centered {
+          height: 50px;
+          filter: drop-shadow(0 0 25px rgba(255,122,0,0.7));
+          transition: all 0.4s ease-in-out;
+        }
+        .logo-centered:hover {
+          transform: scale(1.05);
+          filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
+        }
+      </style>
 
       <h3>DroneShield AI Chatbot</h3>
       <p>
@@ -149,17 +162,23 @@
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
       </div>
 
-      <!-- Demo screenshot -->
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
     </section>
 
-    <!-- PROJECT 2 (placeholder) -->
+    <!-- PROJECT 2 -->
     <section class="card project">
       <h3>AI Data Annotation Pipeline (in progress)</h3>
       <p>
         A SuperAnnotate-powered pipeline that standardizes image labeling for computer vision datasets,
         featuring automated QA and export for YOLO-based training environments.
       </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section style="text-align:center; margin-top:40px;">
+      <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
+        Connect on LinkedIn
+      </a>
     </section>
 
     <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
