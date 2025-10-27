@@ -151,8 +151,8 @@
     .project-nav {
       position: fixed;
       top: 110px;
-      right: 24px;
-      width: 220px;
+      right: 10px;             /* <- only change: was 24px */
+      width: 180px;            /* <- only change: was 220px */
       background: rgba(0,0,0,0.6);
       border: 1px solid rgba(255,122,0,0.3);
       border-radius: 10px;
@@ -259,7 +259,7 @@
 
     <!-- PROJECT 2 -->
     <section id="annotation" class="card project">
-      <h3>AI Data Annotation and Object Detection Model (final results write up in progress)</h3>
+      <h3>AI Data Annotation Pipeline (in progress)</h3>
       <p>
         Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
       </p>
@@ -278,7 +278,6 @@
         <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
         <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
         <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
-        <span data-tooltip="Accurate AI model builds for object detection."> Model Training</span>
       </div>
     </section>
 
@@ -419,45 +418,29 @@
     ];
     const linkById = id => document.getElementById('lnk-' + id);
 
-    // *** FIXED: choose the most visible section to avoid flicker / wrong highlights
     const highlightObserver = new IntersectionObserver((entries) => {
-      let bestEntry = null;
       entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = linkById(id);
+        if (!link) return;
         if (entry.isIntersecting) {
-          if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
-            bestEntry = entry;
-          }
+          sections.forEach(s => {
+            const l = linkById(s);
+            if (l) l.classList.remove('active');
+          });
+          link.classList.add('active');
         }
       });
-      if (bestEntry) {
-        const id = bestEntry.target.id;
-        sections.forEach(s => {
-          const l = linkById(s);
-          if (l) l.classList.toggle('active', s === id);
-        });
-      }
     }, {
       root: null,
-      threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
-      rootMargin: "0px 0px -30% 0px"
+      threshold: 0.5,
+      rootMargin: "-10% 0px -40% 0px"
     });
 
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) highlightObserver.observe(el);
     });
-
-    // Ensure correct highlight on direct hash loads (e.g., /#sqldatabase)
-    window.addEventListener('load', () => {
-      const hash = location.hash.replace('#','');
-      if (sections.includes(hash)) {
-        sections.forEach(s => {
-          const l = linkById(s);
-          if (l) l.classList.toggle('active', s === hash);
-        });
-      }
-    });
   </script>
 </body>
 </html>
-
