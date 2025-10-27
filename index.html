@@ -13,7 +13,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 .stApp {
-    background: radial-gradient(circle at top center, rgba(0,0,0,1) 0%, #0d0d0d 100%);
+    background: radial-gradient(circle at top center, rgba(255,122,0,0.9) 0%, #0D0D0D 90%);
     color: white;
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
@@ -26,9 +26,27 @@ h1 {
     text-shadow: 0 0 40px rgba(255,122,0,0.9);
 }
 
+/* Logo */
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: -5px;
+}
+.logo-wrapper img {
+    width: 120px;
+    filter: drop-shadow(0 0 25px rgba(255,122,0,0.8));
+    transition: all 0.5s ease-in-out;
+}
+.logo-wrapper img:hover {
+    transform: scale(1.07);
+    filter: drop-shadow(0 0 45px rgba(255,160,40,1));
+}
+
 /* Card Styling */
 .card {
-    background: rgba(25, 25, 25, 0.8);
+    background: rgba(25, 25, 25, 0.78);
     border-radius: 12px;
     padding: 25px;
     margin: 20px auto;
@@ -60,7 +78,17 @@ img.demo {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- HEADER ----------
+# ---------- HEADER WITH LOGO ----------
+if os.path.exists("droneshield_logo.png"):
+    encoded_logo = base64.b64encode(open("droneshield_logo.png", "rb").read()).decode()
+    st.markdown(f"""
+        <div class="logo-wrapper">
+            <img src="data:image/png;base64,{encoded_logo}" alt="DroneShield Logo"/>
+        </div>
+    """, unsafe_allow_html=True)
+else:
+    st.warning("⚠️ Missing logo: please upload 'droneshield_logo.png' to your repository root.")
+
 st.markdown("<h1>Timothy Lonergan — AI & Automation Portfolio</h1>", unsafe_allow_html=True)
 
 # ---------- ABOUT SECTION ----------
@@ -109,4 +137,5 @@ st.markdown("""
 <hr style='margin-top:40px; border-color: rgba(255,255,255,0.1);'>
 <p style='font-size:13px; opacity:0.7;'>© 2025 Timothy Lonergan | Independent AI Projects</p>
 """, unsafe_allow_html=True)
+
 
