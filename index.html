@@ -91,6 +91,27 @@
       transform: translateY(0);
     }
 
+    /* Skills */
+    .skills {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    .skills strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #ffbb55;
+    }
+    .skills span {
+      background: rgba(255,122,0,0.2);
+      border: 1px solid rgba(255,122,0,0.3);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin: 3px;
+      display: inline-block;
+      color: #fff;
+      font-size: 13px;
+    }
+
     footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     .muted { color: #ddd; }
 
@@ -133,7 +154,6 @@
 
     <!-- PROJECT 1 -->
     <section class="card project">
-      <!-- DroneShield logo -->
       <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
         <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
       </div>
@@ -163,6 +183,15 @@
       </div>
 
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Prompt Engineering</span>
+        <span>Streamlit</span>
+        <span>Python</span>
+        <span>Retrieval-Augmented Generation (RAG)</span>
+        <span>OpenAI API Integration</span>
+      </div>
     </section>
 
     <!-- PROJECT 2 -->
@@ -172,64 +201,77 @@
         A Roboflow powered pipeline that standardizes image labeling for computer vision datasets,
         featuring automated QA and export for YOLO-based training environments.
       </p>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Data Annotation</span>
+        <span>Roboflow</span>
+        <span>YOLO Integration</span>
+        <span>Quality Assurance</span>
+      </div>
     </section>
 
-<!-- PROJECT 3: Market-Sensitive Information Automation Daily Email -->
-<section class="card project">
-  <h3>Market-Sensitive Information Automation Daily Email</h3>
-  <p>
-    An automated daily news delivery system built in Google Colab that fetches
-    and emails the latest market-relevant and business-sensitive news using Google API,
-    Python, and a lightweight email dispatch routine. Designed to streamline
-    intelligence monitoring for subscribed users.
-  </p>
+    <!-- PROJECT 3 -->
+    <section class="card project">
+      <h3>Market-Sensitive Information Automation Daily Email</h3>
+      <p>
+        An automated daily news delivery system built in Google Colab that fetches
+        and emails the latest market-relevant and business-sensitive news using Google API,
+        Python, and a lightweight email dispatch routine. Designed to streamline
+        intelligence monitoring for subscribed users.
+      </p>
 
-  <div class="buttons">
-    <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" 
-       target="_blank" rel="noopener">Open Colab Notebook</a>
-  </div>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy"
+           target="_blank" rel="noopener">Open Colab Notebook</a>
+      </div>
 
-  <!-- Screenshot placeholder -->
- <img class="screenshot" id="marketEmailDemo" src="./marketemaildemo.png" alt="Market Email Automation Demo">
-</section>
+      <img class="screenshot" id="marketEmailDemo" src="./marketemaildemo.png" alt="Market Email Automation Demo">
 
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Prompt Engineering</span>
+        <span>Automation</span>
+        <span>Google Colab</span>
+        <span>Email API Integration</span>
+        <span>Python Scripting</span>
+      </div>
+    </section>
 
-    
     <!-- PROJECT 4 -->
-<section class="card project">
-  <h3>Scaling Customer Solutions Knowledge Base</h3>
-  <p>
-    A strategic project proposal outlining how a defence technology company could scale its
-    customer service operations using a structured Knowledge Base and SOP framework.
-    The document demonstrates the design of tiered enquiry systems, verification flows,
-    and escalation protocols to support future team growth.
-  </p>
+    <section class="card project">
+      <h3>Scaling Customer Solutions Knowledge Base</h3>
+      <p>
+        A strategic project proposal outlining how a defence technology company could scale its
+        customer service operations using a structured Knowledge Base and SOP framework.
+        The document demonstrates the design of tiered enquiry systems, verification flows,
+        and escalation protocols to support future team growth.
+      </p>
 
-  <div class="buttons">
-    <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
-      View Full Document (PDF)
-    </a>
-  </div>
+      <div class="buttons">
+        <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
+          View Full Document (PDF)
+        </a>
+      </div>
 
-  <!-- Collapsible Preview -->
-  <details style="margin-top:18px;">
-    <summary style="
-      cursor: pointer;
-      font-weight: 600;
-      color: #ffbb55;
-      padding: 8px 0;
-      transition: color 0.3s ease;
-    ">📄 Preview Document</summary>
-    <div style="margin-top:10px;">
-      <iframe
-        src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
-        width="100%"
-        height="500px"
-        style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"
-      ></iframe>
-    </div>
-  </details>
-</section>
+      <details style="margin-top:18px;">
+        <summary style="cursor: pointer; font-weight: 600; color: #ffbb55; padding: 8px 0;">📄 Preview Document</summary>
+        <div style="margin-top:10px;">
+          <iframe src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
+                  width="100%" height="500px"
+                  style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Process Documentation</span>
+        <span>Knowledge Management</span>
+        <span>Standard Operating Procedures</span>
+        <span>Organizational Design</span>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section style="text-align:center; margin-top:40px;">
       <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
@@ -241,7 +283,6 @@
   </main>
 
   <script>
-    // Fade-in the screenshot when it enters view
     const shot = document.getElementById('chatbotDemo');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
