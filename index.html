@@ -1,295 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Timothy Lonergan — AI & Automation Portfolio</title>
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+<!-- PROJECT 1 -->
+<section class="card project">
+  <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+    <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
+  </div>
+
   <style>
-    :root{
-      --card-bg: rgba(0,0,0,0.55);
-      --card-shadow: 0 0 30px rgba(255,122,0,0.35);
-      --text: #f3f3f3;
-      --accent: #ffbb55;
+    .logo-centered {
+      height: 50px;
+      filter: drop-shadow(0 0 25px rgba(255,122,0,0.7));
+      transition: all 0.4s ease-in-out;
     }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at top center, rgba(255,122,0,0.95) 0%, #1a1a1a 95%);
-      color: var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
-
-    /* Header */
-    h1 {
-      color: #000;
-      text-align: center;
-      margin: 8px 0 8px;
-      font-size: 38px;
-      font-weight: 800;
-      text-shadow: 0 2px 8px rgba(255,150,50,0.8);
-    }
-    .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
-
-    /* Cards */
-    .card {
-      background: var(--card-bg);
-      border-radius: 14px;
-      box-shadow: var(--card-shadow);
-      padding: 22px 24px;
-      margin: 26px 0;
-    }
-    .card h2 { margin: 6px 0 10px; }
-
-    /* Projects */
-    .project { transition: transform .2s ease, box-shadow .2s ease; }
-    .project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
-    .project h3 { margin: 6px 0 10px; color: var(--accent); }
-
-    .buttons { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
-    .btn {
-      background: #ff7a00;
-      color: #111;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 0 18px rgba(255,122,0,0.35);
-    }
-    .btn.secondary {
-      background: #222;
-      color: #f0f0f0;
-      border: 1px solid #444;
-    }
-
-    /* Logo hover glow */
-    .logo {
-      height: 48px;
-      margin: 6px 0 12px;
-      filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
-      transition: transform .25s ease, filter .25s ease;
-    }
-    .logo:hover {
+    .logo-centered:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
-    }
-
-    /* Screenshot */
-    .screenshot {
-      margin-top: 14px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-    .screenshot.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Skills */
-    .skills {
-      margin-top: 16px;
-      font-size: 14px;
-    }
-    .skills strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #ffbb55;
-    }
-    .skills span {
-      background: rgba(255,122,0,0.2);
-      border: 1px solid rgba(255,122,0,0.3);
-      border-radius: 6px;
-      padding: 4px 10px;
-      margin: 3px;
-      display: inline-block;
-      color: #fff;
-      font-size: 13px;
-      position: relative;
-      cursor: help;
-    }
-    .skills span::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-    }
-    .skills span:hover::after {
-      opacity: 1;
-    }
-
-    footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
-    .muted { color: #ddd; }
-
-    /* LinkedIn Button */
-    .linkedin-btn {
-      display: inline-block;
-      background: #0077b5;
-      color: white;
-      font-weight: 600;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(0,119,181,0.4);
-      transition: all 0.3s ease-in-out;
-      margin-top: 20px;
-    }
-    .linkedin-btn:hover {
-      background: #0091d5;
-      box-shadow: 0 0 25px rgba(0,119,181,0.6);
-      transform: scale(1.05);
+      filter: drop-shadow(0 0 40px rgba(255,180,80,0.9));
     }
   </style>
-</head>
-<body>
-  <main class="wrap">
-    <h1>Timothy Lonergan — AI & Automation Portfolio</h1>
-    <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
-    <!-- ABOUT -->
-    <section class="card">
-      <h2>About Me</h2>
-      <p>
-        I’m an AI and automation enthusiast with a background in customer operations management, process design, data analysis, and workforce management.
-        I focus on building intelligent tools that improve efficiency, accuracy, and access to knowledge.
-        This portfolio highlights my transition into AI through applied projects like autonomous chatbots,
-        data annotation pipelines, and real-time information retrieval systems.
-      </p>
-    </section>
+  <h3>DroneShield AI Chatbot</h3>
+  <p>
+    A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
+    from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
+    external info when context is missing.
+  </p>
 
-    <!-- PROJECT 1 -->
-    <section class="card project">
-      <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
-        <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
-      </div>
-      <h3>DroneShield AI Chatbot</h3>
-      <p>
-        A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
-        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
-        external info when context is missing.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
-        <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
-      </div>
-      <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+  <div class="buttons">
+    <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
+    <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+  </div>
 
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
-        <span data-tooltip="Building dynamic web apps quickly using Python.">Streamlit</span>
-        <span data-tooltip="Programming for automation, data handling, and integration.">Python</span>
-        <span data-tooltip="Using vector databases for document-aware AI answers.">RAG (Retrieval-Augmented Generation)</span>
-        <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
-      </div>
-    </section>
+  <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
 
-    <!-- PROJECT 2 -->
-    <section class="card project">
-      <h3>AI Data Annotation Pipeline (in progress)</h3>
-      <p>
-        A Roboflow powered pipeline that standardizes image labeling for computer vision datasets,
-        featuring automated QA and export for YOLO-based training environments.
-      </p>
+  <div class="skills">
+    <strong>Demonstrated Skills:</strong>
+    <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
+    <span data-tooltip="Building dynamic web apps quickly using Python.">Streamlit</span>
+    <span data-tooltip="Programming for automation, data handling, and integration.">Python</span>
+    <span data-tooltip="Using vector databases for document-aware AI answers.">RAG (Retrieval-Augmented Generation)</span>
+    <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
+  </div>
+</section>
 
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
-        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
-        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
-        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
-      </div>
-    </section>
-
-    <!-- PROJECT 3 -->
-    <section class="card project">
-      <h3>Market-Sensitive Information Automation Daily Email</h3>
-      <p>
-        An automated daily news delivery system built in Google Colab that fetches
-        and emails the latest market-relevant and business-sensitive news using Google API,
-        Python, and a lightweight email dispatch routine. Designed to streamline
-        intelligence monitoring for subscribed users.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" 
-           target="_blank" rel="noopener">Open Colab Notebook</a>
-      </div>
-      <img class="screenshot" id="marketEmailDemo" src="./marketemaildemo.png" alt="Market Email Automation Demo">
-
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Designing prompts for summarizing and extracting key information.">Prompt Engineering</span>
-        <span data-tooltip="Creating hands-off workflows for information delivery.">Automation</span>
-        <span data-tooltip="Developing and executing scripts in Google Colab.">Google Colab</span>
-        <span data-tooltip="Integrating Gmail or Google APIs for automated email sending.">Email API Integration</span>
-        <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
-      </div>
-    </section>
-
-    <!-- PROJECT 4 -->
-    <section class="card project">
-      <h3>Scaling Customer Solutions Knowledge Base</h3>
-      <p>
-        A strategic project proposal outlining how a defence technology company could scale its
-        customer service operations using a structured Knowledge Base and SOP framework.
-        The document demonstrates the design of tiered enquiry systems, verification flows,
-        and escalation protocols to support future team growth.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
-          View Full Document (PDF)
-        </a>
-      </div>
-      <details style="margin-top:18px;">
-        <summary style="cursor: pointer; font-weight: 600; color: #ffbb55; padding: 8px 0;">📄 Preview Document</summary>
-        <div style="margin-top:10px;">
-          <iframe src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
-                  width="100%" height="500px"
-                  style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
-        </div>
-      </details>
-
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Creating structured documents that guide operational workflows.">Process Documentation</span>
-        <span data-tooltip="Designing accessible repositories of organizational knowledge.">Knowledge Management</span>
-        <span data-tooltip="Developing and maintaining procedural documentation.">Standard Operating Procedures</span>
-        <span data-tooltip="Structuring scalable workflows and communication channels.">Organizational Design</span>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section style="text-align:center; margin-top:40px;">
-      <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
-        Connect on LinkedIn
-      </a>
-    </section>
-
-    <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
-  </main>
-
-  <script>
-    const shot = document.getElementById('chatbotDemo');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
-    }, { threshold: 0.25 });
-    if (shot) obs.observe(shot);
-  </script>
-</body>
 </html>
