@@ -79,12 +79,169 @@ h1 {
 }
 .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
 
-/* ... rest of style code remains identical ... */
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  padding: 22px 24px;
+  margin: 26px 0;
+}
+.project { transition: transform .2s ease, box-shadow .2s ease; }
+.project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
+.project h3 { margin: 6px 0 10px; color: var(--accent); }
 
+.buttons { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+.btn {
+  background: #ff7a00;
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(255,122,0,0.35);
+}
+.btn.secondary {
+  background: #222;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+.logo {
+  height: 48px;
+  margin: 6px 0 12px;
+  filter: drop-shadow(0 0 20px rgba(255,122,0,0.55));
+  transition: transform .25s ease, filter .25s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
+}
+
+.screenshot {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.screenshot.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skills */
+.skills {
+  margin-top: 16px;
+  font-size: 14px;
+}
+.skills strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffbb55;
+}
+.skills span {
+  background: rgba(255,122,0,0.2);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 3px;
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+  position: relative;
+  cursor: help;
+}
+.skills span::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.skills span:hover::after { opacity: 1; }
+
+footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
+.muted { color: #ddd; }
+
+.linkedin-btn {
+  display: inline-block;
+  background: #0077b5;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0,119,181,0.4);
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+.linkedin-btn:hover {
+  background: #0091d5;
+  box-shadow: 0 0 25px rgba(0,119,181,0.6);
+  transform: scale(1.05);
+}
+
+/* Right-side navigator */
+.project-nav {
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  width: 173px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 0 20px rgba(255,122,0,0.4);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+}
+.project-nav h4 {
+  color: #ffbb55;
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 16px;
+}
+.project-nav a {
+  display: block;
+  color: #f3f3f3;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+.project-nav a:hover {
+  background: rgba(255,122,0,0.25);
+  color: #ffbb55;
+}
+.project-nav a.active {
+  background: rgba(255,122,0,0.35);
+  color: #ffbb55;
+  box-shadow: 0 0 10px rgba(255,122,0,0.35) inset;
+}
+
+@media (max-width: 1200px) {
+  .project-nav { display: none; }
+}
   </style>
 </head>
 
 <body>
+  <!-- Right-side nav -->
   <nav class="project-nav">
     <h4>Projects</h4>
     <a href="#dronechat" id="lnk-dronechat">DroneShield Chatbot</a>
@@ -141,16 +298,16 @@ h1 {
         external info when context is missing.
       </p>
 
-      <!-- 🔽 NEW BUTTON ADDED BELOW -->
       <div class="buttons">
         <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
+        <!-- NEW button (between Open Live App and View Source) -->
         <a class="btn secondary" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
       </div>
 
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
 
-      <!-- 🔽 NEW COLLAPSIBLE PREVIEW ADDED BELOW -->
+      <!-- NEW collapsible PDF preview (below screenshot, above skills) -->
       <details style="margin-top:18px;">
         <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Project Notes</summary>
         <div style="margin-top:10px;">
@@ -160,6 +317,7 @@ h1 {
             style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
         </div>
       </details>
+
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
         <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
@@ -169,7 +327,6 @@ h1 {
         <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
       </div>
     </section>
-
     <!-- PROJECT 2 -->
     <section id="annotation" class="card project">
       <h3>AI Data Annotation and Object Detection Model (final results write-up in progress)</h3>
@@ -365,5 +522,6 @@ h1 {
   </script>
 </body>
 </html>
+
 
 
