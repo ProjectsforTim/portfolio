@@ -250,8 +250,10 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <a href="#customersolutions" id="lnk-customersolutions">Customer Solutions KB</a>
     <a href="#dispatchingtool" id="lnk-dispatchingtool">Dispatching Automation Tool</a>
     <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
+    <!-- NEW PROJECTS IN NAV -->
+    <a href="#dataanalysis" id="lnk-dataanalysis">Data Analysis (coming soon)</a>
+    <a href="#salesflier" id="lnk-salesflier">Sales/Marketing Flier (coming soon)</a>
   </nav>
-
   <main class="wrap">
     <h1>
       Timothy Lonergan — AI & Automation Portfolio
@@ -300,16 +302,14 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 
       <div class="buttons">
         <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
-        <!-- NEW button (between Open Live App and View Source) -->
-        <a class="btn secondary" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
+        <a class="btn" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
         <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
       </div>
 
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
 
-      <!-- NEW collapsible PDF preview (below screenshot, above skills) -->
       <details style="margin-top:18px;">
-        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Project Notes</summary>
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview: AI Chatbot Key Takeaways</summary>
         <div style="margin-top:10px;">
           <iframe
             src="./AI_Chatbot_Key_Takeaways.pdf#view=FitH"
@@ -327,6 +327,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
       </div>
     </section>
+
     <!-- PROJECT 2 -->
     <section id="annotation" class="card project">
       <h3>AI Data Annotation and Object Detection Model (final results write-up in progress)</h3>
@@ -374,7 +375,127 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
       </div>
     </section>
+  <main class="wrap">
+    <h1>
+      Timothy Lonergan — AI & Automation Portfolio
+      <svg class="drone" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+        <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+        <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+      </svg>
+    </h1>
+    <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
 
+    <!-- ABOUT -->
+    <section class="card">
+      <h2>About Me</h2>
+      <p>
+        I’m an AI and automation enthusiast with a background in customer operations management,
+        process design, data analysis, and workforce management. I focus on building intelligent tools
+        that improve efficiency, accuracy, and access to knowledge. This portfolio highlights my
+        transition into AI through applied projects like autonomous chatbots, data annotation pipelines,
+        and real-time information retrieval systems.
+      </p>
+    </section>
+
+    <!-- PROJECT 1 -->
+    <section id="dronechat" class="card project">
+      <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+        <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
+      </div>
+      <style>
+        .logo-centered { height: 50px; filter: drop-shadow(0 0 25px rgba(255,122,0,0.7)); transition: all 0.4s ease-in-out; }
+        .logo-centered:hover { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(255,180,80,0.9)); }
+      </style>
+
+      <h3>DroneShield AI Chatbot</h3>
+      <p>
+        A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
+        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
+        external info when context is missing.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
+        <a class="btn" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
+        <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+      </div>
+
+      <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview: AI Chatbot Key Takeaways</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="./AI_Chatbot_Key_Takeaways.pdf#view=FitH"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Crafting precise, context-aware instructions for GPT models.">Prompt Engineering</span>
+        <span data-tooltip="Building dynamic web apps quickly using Python.">Streamlit</span>
+        <span data-tooltip="Programming for automation, data handling, and integration.">Python</span>
+        <span data-tooltip="Using vector databases for document-aware AI answers.">RAG (Retrieval-Augmented Generation)</span>
+        <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 2 -->
+    <section id="annotation" class="card project">
+      <h3>AI Data Annotation and Object Detection Model (final results write-up in progress)</h3>
+      <p>
+        Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
+      </div>
+
+      <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
+        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
+        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
+        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
+        <span data-tooltip="Training of accurate and precise AI models capable of real world application.">AI Model Training</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 3 -->
+    <section id="marketinfo" class="card project">
+      <h3>Market-Sensitive Information Automation Daily Email</h3>
+      <p>
+        An automated daily news delivery system built in Google Colab that fetches
+        and emails the latest market-relevant and business-sensitive news using Google API,
+        Python, and a lightweight email dispatch routine. Designed to streamline
+        intelligence monitoring for subscribed users.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" target="_blank" rel="noopener">
+          Open Colab Notebook
+        </a>
+      </div>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span data-tooltip="Designing prompts for summarizing and extracting key information.">Prompt Engineering</span>
+        <span data-tooltip="Creating hands-off workflows for information delivery.">Automation</span>
+        <span data-tooltip="Developing and executing notebooks in Google Colab.">Google Colab</span>
+        <span data-tooltip="Integrating Gmail/Google APIs for automated email sending.">Email API Integration</span>
+        <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
+      </div>
+    </section>
     <!-- PROJECT 4 -->
     <section id="customersolutions" class="card project">
       <h3>Scaling Customer Solutions Knowledge Base</h3>
@@ -448,6 +569,24 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       <p>Fully functional SQL database for a company to train their workforce on — currently in development.</p>
     </section>
 
+    <!-- PROJECT 7 -->
+    <section id="dataanalysis" class="card project">
+      <h3>Data Analysis on Customer Operations (coming soon)</h3>
+      <p>
+        A showcase of how raw operational data can be transformed into clear, actionable business metrics and visualisations.
+        This project highlights advanced Excel formula use to reveal inefficiencies, identify bottlenecks, and translate data trends into operational insights.
+      </p>
+    </section>
+
+    <!-- PROJECT 8 -->
+    <section id="salesflier" class="card project">
+      <h3>High Impact Flier for Sales or Marketing (coming soon)</h3>
+      <p>
+        A visually striking one-pager designed to complement sales pitches or marketing campaigns for companies offering counter-UAS solutions.
+        It will combine concise messaging with impactful imagery to illustrate the civilian UAS challenge and deliver a clear call to action.
+      </p>
+    </section>
+
     <!-- CONTACT -->
     <section style="text-align:center; margin-top:40px;">
       <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
@@ -459,6 +598,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   </main>
 
   <script>
+    // Fade-in effect for the main screenshot
     const shot = document.getElementById('chatbotDemo');
     if (shot) {
       const obs = new IntersectionObserver((entries) => {
@@ -467,19 +607,23 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       obs.observe(shot);
     }
 
+    // Ensure tooltips exist for all skill chips
     document.querySelectorAll('.skills span').forEach(span => {
       if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
         span.dataset.tooltip = span.textContent.trim();
       }
     });
 
+    // Right-side nav highlighting for section in view
     const sections = [
       'dronechat',
       'annotation',
       'marketinfo',
       'customersolutions',
       'dispatchingtool',
-      'sqldatabase'
+      'sqldatabase',
+      'dataanalysis',
+      'salesflier'
     ];
     const linkById = id => document.getElementById('lnk-' + id);
 
@@ -522,6 +666,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   </script>
 </body>
 </html>
+
 
 
 
