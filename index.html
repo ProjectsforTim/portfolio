@@ -51,6 +51,31 @@
   90%, 100% { opacity: 0; width: 0; }
 }
 
+/* SECOND DRONE — HOVERING LEFT */
+.drone-secondary {
+  position: absolute;
+  top: -80px;
+  left: -250px;
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 12px rgba(255,180,80,0.9));
+  z-index: 10;
+  animation: droneFlyLeft 7s ease-in-out 1, droneHoverLeft 4s ease-in-out infinite 7s;
+}
+
+@keyframes droneFlyLeft {
+  0% { transform: translateX(-300px) translateY(20px) scale(0.9) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateX(100px) translateY(-30px) rotate(-5deg); }
+  80% { transform: translateX(300px) translateY(0px) rotate(5deg); opacity: 1; }
+  100% { transform: translateX(380px) translateY(0px) rotate(0deg); opacity: 1; }
+}
+
+@keyframes droneHoverLeft {
+  0%, 100% { transform: translateX(380px) translateY(0px) rotate(0deg); }
+  50% { transform: translateX(380px) translateY(-6px) rotate(-2deg); }
+}
+
 /* existing theme styles */
 :root {
   --card-bg: rgba(0,0,0,0.55);
@@ -78,7 +103,6 @@ h1 {
   position: relative;
 }
 .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
-
 .card {
   background: var(--card-bg);
   border-radius: 14px;
@@ -250,12 +274,23 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <a href="#customersolutions" id="lnk-customersolutions">Customer Solutions KB</a>
     <a href="#dispatchingtool" id="lnk-dispatchingtool">Dispatching Automation Tool</a>
     <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
-    <!-- NEW PROJECTS IN NAV -->
     <a href="#dataanalysis" id="lnk-dataanalysis">Data Analysis (coming soon)</a>
     <a href="#salesflier" id="lnk-salesflier">Sales/Marketing Flier (coming soon)</a>
   </nav>
+
   <main class="wrap">
     <h1>
+      <svg class="drone-secondary" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+        <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+        <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+      </svg>
       Timothy Lonergan — AI & Automation Portfolio
       <svg class="drone" viewBox="0 0 64 64">
         <circle cx="32" cy="32" r="6" fill="#ffbb55" />
@@ -282,7 +317,6 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         and real-time information retrieval systems.
       </p>
     </section>
-
     <!-- PROJECT 1 -->
     <section id="dronechat" class="card project">
       <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
@@ -299,7 +333,6 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
         external info when context is missing.
       </p>
-
       <div class="buttons">
         <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
         <a class="btn" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
@@ -309,7 +342,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
 
       <details style="margin-top:18px;">
-        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview: AI Chatbot Key Takeaways</summary>
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Project Notes PDF</summary>
         <div style="margin-top:10px;">
           <iframe
             src="./AI_Chatbot_Key_Takeaways.pdf#view=FitH"
@@ -334,7 +367,6 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       <p>
         Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
       </p>
-
       <div class="buttons">
         <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
       </div>
@@ -375,6 +407,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
       </div>
     </section>
+
     <!-- PROJECT 4 -->
     <section id="customersolutions" class="card project">
       <h3>Scaling Customer Solutions Knowledge Base</h3>
@@ -452,8 +485,8 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <section id="dataanalysis" class="card project">
       <h3>Data Analysis on Customer Operations (coming soon)</h3>
       <p>
-        A showcase of how raw operational data can be transformed into clear, actionable business metrics and visualisations.
-        This project highlights advanced Excel formula use to reveal inefficiencies, identify bottlenecks, and translate data trends into operational insights.
+        A showcase of transforming raw data into clear business metrics and visual insights.  
+        This project demonstrates identifying key operational patterns and hidden issues using advanced Excel analysis and visualisation techniques.
       </p>
     </section>
 
@@ -461,8 +494,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <section id="salesflier" class="card project">
       <h3>High Impact Flier for Sales or Marketing (coming soon)</h3>
       <p>
-        A visually striking one-pager designed to complement sales pitches or marketing campaigns for companies offering counter-UAS solutions.
-        It will combine concise messaging with impactful imagery to illustrate the civilian UAS challenge and deliver a clear call to action.
+        A striking one-page flier concept designed for counter-UAS solution providers, highlighting the civilian drone challenge and delivering a concise, persuasive call to action.
       </p>
     </section>
 
@@ -545,3 +577,4 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   </script>
 </body>
 </html>
+
