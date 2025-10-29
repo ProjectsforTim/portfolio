@@ -778,7 +778,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 
     const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     const xBase = (window.innerWidth / 2) - 30;
-    const sineWave = Math.sin(scrollPercent * Math.PI * 1.5) * 700;
+    const sineWave = Math.sin(scrollPercent * Math.PI * 1) * 800;
     const yWave = Math.abs(Math.cos(scrollPercent * Math.PI * 2)) * (maxY - minY) / 2;
     const y = minY + yWave;
 
