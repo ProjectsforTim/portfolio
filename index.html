@@ -350,10 +350,10 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <h4>Projects</h4>
     <a href="#dronechat" id="lnk-dronechat">DroneShield Chatbot</a>
     <a href="#annotation" id="lnk-annotation">AI Data Annotation</a>
+    <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
     <a href="#marketinfo" id="lnk-marketinfo">Market Email Automation</a>
     <a href="#customersolutions" id="lnk-customersolutions">Customer Solutions KB</a>
     <a href="#dispatchingtool" id="lnk-dispatchingtool">Dispatching Automation Tool</a>
-    <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
     <a href="#dataanalysis" id="lnk-dataanalysis">Data Analysis (coming soon)</a>
     <a href="#salesflier" id="lnk-salesflier">Sales/Marketing Flier (coming soon)</a>
   </nav>
@@ -502,8 +502,37 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         <span data-tooltip="Training of accurate and precise AI models capable of real world application.">AI Model Training</span>
       </div>
     </section>
+<!-- PROJECT 3 -->
+    <section id="sqldatabase" class="card project">
+  <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+    <img src="./SQLephant.png" alt="SQL Project Logo" class="logo-centered">
+  </div>
 
-    <!-- PROJECT 3 -->
+  <h3>SQL Training Database Project</h3>
+  <p>
+    Demonstrating the knowledge gained from earlier formal SQL education.  
+    This fully functional SQL database for a company to train their workforce on has been tested with both beginner and advanced queries to ensure full functionality.  
+    Ready-to-use synthesised drone retailer dataset along with table seeding commands showcased in the SQL file.
+  </p>
+
+  <div class="buttons">
+    <a class="btn" href="./SQL_Database_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
+    <a class="btn secondary" href="./training_db_drone_retailer_project.sql" target="_blank" rel="noopener">Download the Database</a>
+  </div>
+
+  <img class="screenshot visible" id="sqlDatabaseScreenshot" src="./Advanced_query_test.png" alt="SQL Database screenshot">
+
+  <div class="skills">
+    <strong>Demonstrated Skills:</strong>
+    <span data-tooltip="Designing and normalizing relational database structures.">Database Design</span>
+    <span data-tooltip="Crafting SQL statements to extract, join, and analyze data.">SQL Querying</span>
+    <span data-tooltip="Creating and seeding realistic synthetic datasets.">Data Generation</span>
+    <span data-tooltip="Testing joins, filters, and aggregates for correctness.">Query Validation</span>
+    <span data-tooltip="Applying database logic to real-world retail use cases.">Practical Data Application</span>
+  </div>
+</section>
+
+    <!-- PROJECT 4 -->
     <section id="marketinfo" class="card project">
       <h3>Market-Sensitive Information Automation Daily Email</h3>
       <p>
@@ -528,7 +557,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       </div>
     </section>
 
-    <!-- PROJECT 4 -->
+    <!-- PROJECT 5 -->
     <section id="customersolutions" class="card project">
       <h3>Scaling Customer Solutions Knowledge Base</h3>
       <p>
@@ -561,7 +590,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       </div>
     </section>
 
-    <!-- PROJECT 5 -->
+    <!-- PROJECT 6 -->
     <section id="dispatchingtool" class="card project">
       <h3>Dispatching Automation and Compliance Standardisation</h3>
       <p>
@@ -595,35 +624,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       </div>
     </section>
 
-    <!-- PROJECT 6 -->
-<section id="sqldatabase" class="card project">
-  <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
-    <img src="./SQLephant.png" alt="SQL Project Logo" class="logo-centered">
-  </div>
 
-  <h3>SQL Training Database Project</h3>
-  <p>
-    Demonstrating the knowledge gained from earlier formal SQL education.  
-    This fully functional SQL database for a company to train their workforce on has been tested with both beginner and advanced queries to ensure full functionality.  
-    Ready-to-use synthesised drone retailer dataset along with table seeding commands showcased in the SQL file.
-  </p>
-
-  <div class="buttons">
-    <a class="btn" href="./SQL_Database_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
-    <a class="btn secondary" href="./training_db_drone_retailer_project.sql" target="_blank" rel="noopener">Download the Database</a>
-  </div>
-
-  <img class="screenshot visible" id="sqlDatabaseScreenshot" src="./Advanced_query_test.png" alt="SQL Database screenshot">
-
-  <div class="skills">
-    <strong>Demonstrated Skills:</strong>
-    <span data-tooltip="Designing and normalizing relational database structures.">Database Design</span>
-    <span data-tooltip="Crafting SQL statements to extract, join, and analyze data.">SQL Querying</span>
-    <span data-tooltip="Creating and seeding realistic synthetic datasets.">Data Generation</span>
-    <span data-tooltip="Testing joins, filters, and aggregates for correctness.">Query Validation</span>
-    <span data-tooltip="Applying database logic to real-world retail use cases.">Practical Data Application</span>
-  </div>
-</section>
 
     <!-- PROJECT 7 -->
     <section id="dataanalysis" class="card project">
@@ -673,10 +674,10 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     const sections = [
       'dronechat',
       'annotation',
+      'sqldatabase',
       'marketinfo',
       'customersolutions',
       'dispatchingtool',
-      'sqldatabase',
       'dataanalysis',
       'salesflier'
     ];
