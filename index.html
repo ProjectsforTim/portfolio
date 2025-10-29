@@ -481,142 +481,219 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         <span data-tooltip="Connecting OpenAI APIs for text and reasoning workflows.">OpenAI API Integration</span>
       </div>
     </section>
-    <!-- PROJECT 2 -->
+       <!-- PROJECT 2 -->
     <section id="annotation" class="card project">
-      <h3>AI Data Annotation Project (SuperAnnotate)</h3>
+      <h3>AI Data Annotation and Object Detection Model (final results write-up in progress)</h3>
       <p>
-        A self-directed learning project using <strong>SuperAnnotate</strong> to build familiarity with labeling tools,
-        metadata management, and export formats used for training detection models.
-        Created sample datasets and managed label consistency using bounding boxes and polygons.
+        Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
       </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
+      </div>
+
+      <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
+
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Labeling data for computer vision models.">Annotation</span>
-        <span data-tooltip="Organizing labeling teams and tasks.">Dataset Management</span>
-        <span data-tooltip="Understanding label formats like YOLO and COCO.">ML Data Formats</span>
+        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
+        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
+        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
+        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
+        <span data-tooltip="Training of accurate and precise AI models capable of real world application.">AI Model Training</span>
       </div>
     </section>
 
     <!-- PROJECT 3 -->
     <section id="marketinfo" class="card project">
-      <h3>Automated Market Email & News Tool</h3>
+      <h3>Market-Sensitive Information Automation Daily Email</h3>
       <p>
-        A Python-based automation that fetches relevant finance and drone-industry news via APIs,
-        formats it, and sends personalized summaries through Gmail API.  
-        Automates manual daily research into a single streamlined process.
+        An automated daily news delivery system built in Google Colab that fetches
+        and emails the latest market-relevant and business-sensitive news using Google API,
+        Python, and a lightweight email dispatch routine. Designed to streamline
+        intelligence monitoring for subscribed users.
       </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" target="_blank" rel="noopener">
+          Open Colab Notebook
+        </a>
+      </div>
+
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Using REST APIs to collect real-time data.">API Integration</span>
-        <span data-tooltip="Formatting and sending dynamic emails.">Email Automation</span>
-        <span data-tooltip="Building scripts for recurring daily tasks.">Python Scripting</span>
+        <span data-tooltip="Designing prompts for summarizing and extracting key information.">Prompt Engineering</span>
+        <span data-tooltip="Creating hands-off workflows for information delivery.">Automation</span>
+        <span data-tooltip="Developing and executing notebooks in Google Colab.">Google Colab</span>
+        <span data-tooltip="Integrating Gmail/Google APIs for automated email sending.">Email API Integration</span>
+        <span data-tooltip="Developing lightweight Python scripts for task automation.">Python Scripting</span>
       </div>
     </section>
 
     <!-- PROJECT 4 -->
     <section id="customersolutions" class="card project">
-      <h3>Customer Solutions Knowledge Base (Prototype)</h3>
+      <h3>Scaling Customer Solutions Knowledge Base</h3>
       <p>
-        A proof-of-concept knowledge-base architecture designed for defense-sector organizations.
-        Categorizes support tickets into tiered enquiry types and enables scalable knowledge transfer
-        as customer-support volume grows.
+        A strategic project proposal outlining how a defence technology company could scale its
+        customer service operations using a structured Knowledge Base and SOP framework.
+        The document demonstrates the design of tiered enquiry systems, verification flows,
+        and escalation protocols to support future team growth.
       </p>
+      <div class="buttons">
+        <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
+          View Full Document (PDF)
+        </a>
+      </div>
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Document</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Structuring internal documentation hierarchies.">Knowledge Base Design</span>
-        <span data-tooltip="Improving customer service workflows.">Process Design</span>
-        <span data-tooltip="Creating logical escalation paths.">Tiered Support System</span>
+        <span data-tooltip="Creating structured documents that guide operational workflows.">Process Documentation</span>
+        <span data-tooltip="Designing accessible repositories of organisational knowledge.">Knowledge Management</span>
+        <span data-tooltip="Developing and maintaining procedural documentation.">Standard Operating Procedures</span>
+        <span data-tooltip="Structuring scalable workflows and communication channels.">Organisational Design</span>
       </div>
     </section>
 
     <!-- PROJECT 5 -->
     <section id="dispatchingtool" class="card project">
-      <h3>Dispatching Automation Tool</h3>
+      <h3>Dispatching Automation and Compliance Standardisation</h3>
       <p>
-        Conceptualized a dispatching automation pipeline for operations teams — capable of parsing incoming
-        jobs, prioritizing by urgency, and routing tasks automatically to field agents.
+        A simple yet highly instrumental Excel-based tool that standardised and automated the dispatch note-taking process for operations staff.
+        It rearranged and concatenated operational data for compliance-ready note formats, eliminating manual data entry and improving efficiency by over 60%.
       </p>
+
+      <div class="buttons">
+        <a class="btn" href="./Dispatching_Automation_Tool.xlsx" target="_blank" rel="noopener">
+          Open Excel File
+        </a>
+      </div>
+
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📊 Preview Spreadsheet</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fprojectsfortim.github.io%2Fportfolio%2FDispatching_Automation_Tool.xlsx"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Using rules-based workflows to allocate tasks.">Automation Logic</span>
-        <span data-tooltip="Designing UIs for job visibility.">Dashboard Design</span>
-        <span data-tooltip="Creating scalable workflow systems.">Process Optimization</span>
+        <span data-tooltip="Automating Excel processes for speed and consistency.">Excel Automation</span>
+        <span data-tooltip="Reformatting and concatenating data efficiently.">Data Transformation</span>
+        <span data-tooltip="Ensuring operational consistency and compliance in processes.">Compliance Design</span>
+        <span data-tooltip="Reducing manual data handling through smart templates.">Operational Efficiency</span>
+        <span data-tooltip="Streamlining multi-step manual workflows.">Workflow Optimization</span>
       </div>
     </section>
 
     <!-- PROJECT 6 -->
     <section id="sqldatabase" class="card project">
-      <h3>SQL Training Database — Drone Retailer Project</h3>
-      <p>
-        Designed a PostgreSQL-compatible database simulating an Australian drone retailer.
-        Includes realistic tables for drones, customers, payments, and transactions.
-        Used for writing and testing analytical queries in pgAdmin 4.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="./Training_DB_Drone_Retailer.sql" target="_blank" rel="noopener">Download SQL File</a>
-      </div>
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Structuring relational tables.">Database Design</span>
-        <span data-tooltip="Writing JOIN and aggregate queries.">SQL Analysis</span>
-        <span data-tooltip="Testing schemas in pgAdmin 4.">PostgreSQL</span>
-      </div>
+      <h3>SQL Training Database (coming soon)</h3>
+      <p>Fully functional SQL database for a company to train their workforce on — currently in development.</p>
     </section>
 
     <!-- PROJECT 7 -->
     <section id="dataanalysis" class="card project">
-      <h3>Data Analysis & Visualization (coming soon)</h3>
+      <h3>Data Analysis on Customer Operations (coming soon)</h3>
       <p>
-        Upcoming project demonstrating data analysis using Python (pandas, matplotlib) to derive
-        insights from structured datasets relevant to autonomous systems and AI operations.
+        A showcase of transforming raw data into clear business metrics and visual insights.  
+        This project demonstrates identifying key operational patterns and hidden issues using advanced Excel analysis and visualisation techniques.
       </p>
     </section>
 
     <!-- PROJECT 8 -->
     <section id="salesflier" class="card project">
-      <h3>Sales / Marketing Flier (coming soon)</h3>
+      <h3>High Impact Flier for Sales or Marketing (coming soon)</h3>
       <p>
-        Planned project to create an AI-generated marketing asset showcasing product features
-        and benefits for defense customers, using prompt design and layout automation.
+        A striking one-page flier concept designed for counter-UAS solution providers, highlighting the civilian drone challenge and delivering a concise, persuasive call to action.
       </p>
     </section>
 
-    <footer>
-      <p class="muted">
-        © 2025 Timothy Lonergan. All rights reserved. |
-        <a href="https://linkedin.com/in/timothy-lonergan" class="linkedin-btn" target="_blank">Connect on LinkedIn</a>
-      </p>
-    </footer>
+    <!-- CONTACT -->
+    <section style="text-align:center; margin-top:40px;">
+      <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
+        Connect on LinkedIn
+      </a>
+    </section>
+
+    <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
   </main>
 
   <script>
-    // Fade-in for screenshots on scroll
-    const screenshots = document.querySelectorAll('.screenshot');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-    screenshots.forEach(s => observer.observe(s));
+    // Fade-in effect for the main screenshot
+    const shot = document.getElementById('chatbotDemo');
+    if (shot) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
+      }, { threshold: 0.25 });
+      obs.observe(shot);
+    }
 
-    // Highlight current project in right-side nav
-    const navLinks = document.querySelectorAll('.project-nav a');
-    const sections = document.querySelectorAll('section.project');
-    const activate = id => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`#lnk-${id}`);
-      if (active) active.classList.add('active');
-    };
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        const top = sec.offsetTop - 180;
-        if (pageYOffset >= top) current = sec.getAttribute('id');
+    // Ensure tooltips exist for all skill chips
+    document.querySelectorAll('.skills span').forEach(span => {
+      if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
+        span.dataset.tooltip = span.textContent.trim();
+      }
+    });
+
+    // Right-side nav highlighting for section in view
+    const sections = [
+      'dronechat',
+      'annotation',
+      'marketinfo',
+      'customersolutions',
+      'dispatchingtool',
+      'sqldatabase',
+      'dataanalysis',
+      'salesflier'
+    ];
+    const linkById = id => document.getElementById('lnk-' + id);
+
+    const highlightObserver = new IntersectionObserver((entries) => {
+      let bestEntry = null;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+            bestEntry = entry;
+          }
+        }
       });
-      if (current) activate(current);
+      if (bestEntry) {
+        const id = bestEntry.target.id;
+        sections.forEach(s => {
+          const l = linkById(s);
+          if (l) l.classList.toggle('active', s === id);
+        });
+      }
+    }, {
+      root: null,
+      threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
+      rootMargin: "0px 0px -30% 0px"
+    });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) highlightObserver.observe(el);
+    });
+
+    window.addEventListener('load', () => {
+      const hash = location.hash.replace('#','');
+      if (sections.includes(hash)) {
+        sections.forEach(s => {
+          const l = linkById(s);
+          if (l) l.classList.toggle('active', s === hash);
+        });
+      }
     });
   </script>
 </body>
 </html>
-
-
