@@ -596,34 +596,33 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     </section>
 
     <!-- PROJECT 6 -->
-    <section id="sqldatabase" class="card project">
-  <h3>SQL Training Database — Drone Retailer</h3>
-  <img src="SQLephant.png" alt="SQL Training Database Logo" class="logo" />
+<section id="sqldatabase" class="card project">
+  <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+    <img src="./SQLephant.png" alt="SQL Project Logo" class="logo-centered">
+  </div>
 
+  <h3>SQL Training Database Project</h3>
   <p>
-    A structured PostgreSQL training database built to simulate a realistic Australian drone retailer.
-    Contains relational tables for <strong>drones</strong>, <strong>customers</strong>,
-    <strong>payments</strong>, and <strong>retail branches</strong>.
-    Designed for use in <strong>pgAdmin 4</strong> and optimized for teaching SQL joins,
-    key relationships, and real-world data queries.
+    Demonstrating the knowledge gained from earlier formal SQL education.  
+    This fully functional SQL database for a company to train their workforce on has been tested with both beginner and advanced queries to ensure full functionality.  
+    Ready-to-use synthesised drone retailer dataset along with table seeding commands showcased in the SQL file.
   </p>
 
   <div class="buttons">
-    <a href="Training_DB_Drone_Retailer.sql" class="btn">View SQL</a>
-    <a href="https://github.com/projectsfortim/Training-DB-Drone-Retailer" class="btn secondary">GitHub Repo</a>
-    <a href="sql_preview.html" class="btn">Preview Dataset</a>
+    <a class="btn" href="./SQL_Database_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
+    <a class="btn secondary" href="./training_db_drone_retailer_project.sql" target="_blank" rel="noopener">Download the Database</a>
   </div>
+
+  <img class="screenshot visible" id="sqlDatabaseScreenshot" src="./Advanced_query_test.png" alt="SQL Database screenshot">
 
   <div class="skills">
-    <strong>Skills demonstrated:</strong>
-    <span data-tooltip="PostgreSQL and relational database design">PostgreSQL</span>
-    <span data-tooltip="Database schema creation and key constraints">Schema Design</span>
-    <span data-tooltip="Query writing and JOIN logic">SQL Queries</span>
-    <span data-tooltip="pgAdmin 4 database administration">pgAdmin 4</span>
+    <strong>Demonstrated Skills:</strong>
+    <span data-tooltip="Designing and normalizing relational database structures.">Database Design</span>
+    <span data-tooltip="Crafting SQL statements to extract, join, and analyze data.">SQL Querying</span>
+    <span data-tooltip="Creating and seeding realistic synthetic datasets.">Data Generation</span>
+    <span data-tooltip="Testing joins, filters, and aggregates for correctness.">Query Validation</span>
+    <span data-tooltip="Applying database logic to real-world retail use cases.">Practical Data Application</span>
   </div>
-
-  <img src="sql_screenshot.png" alt="SQL Training Database Screenshot"
-       class="screenshot" loading="lazy" />
 </section>
 
     <!-- PROJECT 7 -->
