@@ -136,6 +136,14 @@
   0%, 100% { transform: translateX(-320px) translateY(10px) rotate(0deg); }
   50% { transform: translateX(-320px) translateY(-4px) rotate(2deg); }
 }
+.drone-secondary,
+.drone-tertiary,
+.drone-quaternary {
+  position: fixed !important;
+  top: auto;
+  z-index: 9999 !important;
+  pointer-events: none;
+}
 
 /* existing theme styles */
 :root {
@@ -325,7 +333,11 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 
   <main class="wrap">
     <h1>
-      Timothy Lonergan — AI & Automation Portfolio
+      <h1>
+  <svg class="drone-secondary" ...
+  <div class="drone-tertiary">...
+  <div class="drone-quaternary">...
+  Timothy Lonergan — AI & Automation Portfolio
       <svg class="drone" viewBox="0 0 64 64">
         <circle cx="32" cy="32" r="6" fill="#ffbb55" />
         <circle cx="12" cy="12" r="4" fill="#ff7a00" />
