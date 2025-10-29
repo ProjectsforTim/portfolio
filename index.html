@@ -156,37 +156,35 @@
   0%, 100% { transform: translateX(-320px) translateY(10px) rotate(0deg); }
   50% { transform: translateX(-320px) translateY(-4px) rotate(2deg); }
 }
-    /* Scroll-Following Drone */
+ /* Scroll-following drone — behind all content */
 .drone-follower-wrapper {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 0; /* keeps behind cards */
-  overflow: visible;
+  z-index: 0; 
+  overflow: hidden;
 }
 
 .drone-follower {
   position: absolute;
-  width: 65px;
-  height: 65px;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 10px rgba(255,150,50,0.6));
-  transition: transform 1.2s ease-out;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 8px rgba(255,150,50,0.5));
+  opacity: 0.85;
+  transition: transform 0.2s ease-out;
 }
 
 .drone-follower-trail {
   position: absolute;
   width: 120px;
   height: 6px;
-  background: linear-gradient(90deg, rgba(255,122,0,0.8), rgba(255,122,0,0));
-  border-radius: 4px;
-  filter: blur(6px);
-  opacity: 0.6;
-  transition: all 1.2s ease-out;
-  transform-origin: right center;
+  background: linear-gradient(90deg, rgba(255,122,0,0.5), rgba(255,122,0,0));
+  border-radius: 3px;
+  opacity: 0.4;
+  filter: blur(4px);
 }
 
 /* existing theme styles */
