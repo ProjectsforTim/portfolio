@@ -156,6 +156,39 @@
   0%, 100% { transform: translateX(-320px) translateY(10px) rotate(0deg); }
   50% { transform: translateX(-320px) translateY(-4px) rotate(2deg); }
 }
+    /* Scroll-Following Drone */
+.drone-follower-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* keeps behind cards */
+  overflow: visible;
+}
+
+.drone-follower {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255,150,50,0.6));
+  transition: transform 1.2s ease-out;
+}
+
+.drone-follower-trail {
+  position: absolute;
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(90deg, rgba(255,122,0,0.8), rgba(255,122,0,0));
+  border-radius: 4px;
+  filter: blur(6px);
+  opacity: 0.6;
+  transition: all 1.2s ease-out;
+  transform-origin: right center;
+}
+
 /* existing theme styles */
 :root {
   --card-bg: rgba(0,0,0,0.55);
@@ -719,6 +752,65 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
         });
       }
     });
+    <!-- Scroll-Following Drone (Dynamic Hovering Version) -->
+<div class="drone-follower-wrapper">
+  <svg class="drone-follower" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+    <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+    <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+    <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+    <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+    <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+  </svg>
+  <div class="drone-follower-trail"></div>
+</div>
+<script>
+  const follower = document.querySelector('.drone-follower');
+  const trail = document.querySelector('.drone-follower-trail');
+
+  // Defines vertical flight area — the drone never drops below this range
+  const minY = window.innerHeight * 0.45;
+  const maxY = window.innerHeight * 0.75;
+
+  let hoverTimer = 0;
+  let isHovering = false;
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    if (!follower || !trail) return;
+
+    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const xBase = (window.innerWidth / 2) - 30;
+    const sineWave = Math.sin(scrollPercent * Math.PI * 4) * 350;
+    const yWave = Math.abs(Math.cos(scrollPercent * Math.PI * 2)) * (maxY - minY) / 2;
+    const y = minY + yWave;
+
+    // Random small hover adjustments
+    if (Math.abs(window.scrollY - lastScrollY) < 2 && !isHovering) {
+      hoverTimer++;
+      if (hoverTimer > 50) { // occasionally trigger hover
+        isHovering = true;
+        setTimeout(() => { isHovering = false; hoverTimer = 0; }, 2000 + Math.random() * 2000);
+      }
+    } else {
+      hoverTimer = 0;
+    }
+    lastScrollY = window.scrollY;
+
+    const hoverX = isHovering ? (Math.random() - 0.5) * 30 : 0;
+    const hoverY = isHovering ? (Math.random() - 0.5) * 20 : 0;
+
+    const rotation = scrollPercent * 720 + (isHovering ? Math.random() * 10 : 0);
+    const x = xBase + sineWave + hoverX;
+
+    follower.style.transform = `translate(${x}px, ${y + hoverY}px) rotate(${rotation}deg)`;
+    trail.style.transform = `translate(${x - 100}px, ${y + hoverY + 20}px) rotate(${rotation - 5}deg) scaleX(1.5)`;
+  });
+</script>
+
   </script>
 </body>
 </html>
