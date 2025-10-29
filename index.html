@@ -681,11 +681,12 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
         Connect on LinkedIn
       </a>
-    </section>
+      </section>
 
-    <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
-  </main>
- <!-- Scroll-Following Drone (Dynamic Hovering Version) -->
+  <footer class="muted">© 2025 Timothy Lonergan | AI & Automation Portfolio</footer>
+</main>
+
+<!-- Scroll-Following Drone (Dynamic Hovering Version) -->
 <div class="drone-follower-wrapper">
   <svg class="drone-follower" viewBox="0 0 64 64">
     <circle cx="32" cy="32" r="6" fill="#ffbb55" />
@@ -700,72 +701,75 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   </svg>
   <div class="drone-follower-trail"></div>
 </div>
-  <script>
-    // Fade-in effect for the main screenshot
-    const shot = document.getElementById('chatbotDemo');
-    if (shot) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
-      }, { threshold: 0.25 });
-      obs.observe(shot);
+
+<script>
+  // Fade-in effect for the main screenshot
+  const shot = document.getElementById('chatbotDemo');
+  if (shot) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) shot.classList.add('visible'); });
+    }, { threshold: 0.25 });
+    obs.observe(shot);
+  }
+
+  // Ensure tooltips exist for all skill chips
+  document.querySelectorAll('.skills span').forEach(span => {
+    if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
+      span.dataset.tooltip = span.textContent.trim();
     }
+  });
 
-    // Ensure tooltips exist for all skill chips
-    document.querySelectorAll('.skills span').forEach(span => {
-      if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
-        span.dataset.tooltip = span.textContent.trim();
-      }
-    });
+  // Right-side nav highlighting for section in view
+  const sections = [
+    'dronechat',
+    'annotation',
+    'sqldatabase',
+    'marketinfo',
+    'customersolutions',
+    'dispatchingtool',
+    'dataanalysis',
+    'salesflier'
+  ];
+  const linkById = id => document.getElementById('lnk-' + id);
 
-    // Right-side nav highlighting for section in view
-    const sections = [
-      'dronechat',
-      'annotation',
-      'sqldatabase',
-      'marketinfo',
-      'customersolutions',
-      'dispatchingtool',
-      'dataanalysis',
-      'salesflier'
-    ];
-    const linkById = id => document.getElementById('lnk-' + id);
-
-    const highlightObserver = new IntersectionObserver((entries) => {
-      let bestEntry = null;
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
-            bestEntry = entry;
-          }
+  const highlightObserver = new IntersectionObserver((entries) => {
+    let bestEntry = null;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+          bestEntry = entry;
         }
+      }
+    });
+    if (bestEntry) {
+      const id = bestEntry.target.id;
+      sections.forEach(s => {
+        const l = linkById(s);
+        if (l) l.classList.toggle('active', s === id);
       });
-      if (bestEntry) {
-        const id = bestEntry.target.id;
-        sections.forEach(s => {
-          const l = linkById(s);
-          if (l) l.classList.toggle('active', s === id);
-        });
-      }
-    }, {
-      root: null,
-      threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
-      rootMargin: "0px 0px -30% 0px"
-    });
+    }
+  }, {
+    root: null,
+    threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
+    rootMargin: "0px 0px -30% 0px"
+  });
 
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) highlightObserver.observe(el);
-    });
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) highlightObserver.observe(el);
+  });
 
-    window.addEventListener('load', () => {
-      const hash = location.hash.replace('#','');
-      if (sections.includes(hash)) {
-        sections.forEach(s => {
-          const l = linkById(s);
-          if (l) l.classList.toggle('active', s === hash);
-        });
-      }
-    });
+  window.addEventListener('load', () => {
+    const hash = location.hash.replace('#','');
+    if (sections.includes(hash)) {
+      sections.forEach(s => {
+        const l = linkById(s);
+        if (l) l.classList.toggle('active', s === hash);
+      });
+    }
+  });
+</script>
+
 <script>
   const follower = document.querySelector('.drone-follower');
   const trail = document.querySelector('.drone-follower-trail');
@@ -810,6 +814,5 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   });
 </script>
 
-  </script>
 </body>
 </html>
