@@ -176,6 +176,9 @@
   opacity: 0.85;
   transition: transform 0.2s ease-out;
 }
+    .drone-follower {
+  transition: transform 0.3s ease-out;
+}
 
 .drone-follower-trail {
   position: absolute;
@@ -787,7 +790,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 
     const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     const xBase = (window.innerWidth / 2) - 30;
-    const sineWave = Math.sin(scrollPercent * Math.PI * 4) * 350;
+    const sineWave = Math.sin(scrollPercent * Math.PI * 2) * 200;
     const yWave = Math.abs(Math.cos(scrollPercent * Math.PI * 2)) * (maxY - minY) / 2;
     const y = minY + yWave;
 
