@@ -45,12 +45,6 @@
  animation: droneFlyOnce 9s ease-in-out 1, droneHover 5s ease-in-out infinite 7s;
 }
 
-@keyframes trail {
-  0%, 10% { opacity: 0; width: 0; }
-  20%, 70% { opacity: 0.6; width: 80px; }
-  90%, 100% { opacity: 0; width: 0; }
-}
-
 /* SECOND DRONE — HOVERING LEFT */
 .drone-secondary {
   position: absolute;
@@ -64,13 +58,11 @@
     droneHoverLeft 4s ease-in-out infinite 7s;
   z-index: 5;
 }
-
 .drone-secondary svg {
   width: 100%;
   height: 100%;
   animation: slowSpin 32s linear infinite;
 }
-
 @keyframes droneFlyLeft {
   0% { transform: translateX(-300px) translateY(20px) scale(0.9) rotate(0deg); opacity: 0; }
   20% { opacity: 1; }
@@ -78,21 +70,19 @@
   80% { transform: translateX(300px) translateY(0px) rotate(5deg); opacity: 1; }
   100% { transform: translateX(380px) translateY(0px) rotate(0deg); opacity: 1; }
 }
-
 @keyframes droneHoverLeft {
   0%, 100% { transform: translateX(380px) translateY(0px) rotate(0deg); }
   50% { transform: translateX(380px) translateY(-6px) rotate(-2deg); }
 }
-
 @keyframes slowSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-    /* THIRD DRONE — HOVERING RIGHT */
+/* THIRD DRONE — HOVERING RIGHT */
 .drone-tertiary {
   position: absolute;
-  top: 80px;       /* adjust vertical position */
-  right: -380px;   /* start just off-screen on the right */
+  top: 80px;
+  right: -380px;
   width: 55px;
   height: 55px;
   filter: drop-shadow(0 0 10px rgba(255,150,50,0.8));
@@ -101,14 +91,11 @@
     droneHoverRight 4s ease-in-out infinite 7s;
   z-index: 5;
 }
-
 .drone-tertiary svg {
   width: 100%;
   height: 100%;
   animation: slowSpin 32s linear infinite;
 }
-
-/* right-to-left flight path */
 @keyframes droneFlyRight {
   0% { transform: translateX(300px) translateY(10px) scale(0.9) rotate(0deg); opacity: 0; }
   20% { opacity: 1; }
@@ -116,17 +103,15 @@
   80% { transform: translateX(-300px) translateY(0px) rotate(-3deg); opacity: 1; }
   100% { transform: translateX(-380px) translateY(0px) rotate(0deg); opacity: 1; }
 }
-
 @keyframes droneHoverRight {
   0%, 100% { transform: translateX(-380px) translateY(0px) rotate(0deg); }
   50% { transform: translateX(-380px) translateY(-6px) rotate(2deg); }
 }
-
-    /* FOURTH DRONE — LOWER RIGHT */
+/* FOURTH DRONE — LOWER RIGHT */
 .drone-quaternary {
   position: absolute;
-  top: 20px;      
-  right: -360px;   /* start off-screen on the right */
+  top: 20px;
+  right: -360px;
   width: 50px;
   height: 50px;
   filter: drop-shadow(0 0 10px rgba(255,150,50,0.8));
@@ -135,14 +120,11 @@
     droneHoverRightLow 4s ease-in-out infinite 7s;
   z-index: 5;
 }
-
 .drone-quaternary svg {
   width: 100%;
   height: 100%;
   animation: slowSpin 48s linear infinite;
 }
-
-/* flight path (right to left, lower arc) */
 @keyframes droneFlyRightLow {
   0% { transform: translateX(300px) translateY(20px) scale(0.9) rotate(0deg); opacity: 0; }
   20% { opacity: 1; }
@@ -150,7 +132,6 @@
   80% { transform: translateX(-250px) translateY(10px) rotate(-3deg); opacity: 1; }
   100% { transform: translateX(-320px) translateY(10px) rotate(0deg); opacity: 1; }
 }
-
 @keyframes droneHoverRightLow {
   0%, 100% { transform: translateX(-320px) translateY(10px) rotate(0deg); }
   50% { transform: translateX(-320px) translateY(-4px) rotate(2deg); }
@@ -210,7 +191,6 @@ h1 {
   color: #f0f0f0;
   border: 1px solid #444;
 }
-
 .logo {
   height: 48px;
   margin: 6px 0 12px;
@@ -221,7 +201,7 @@ h1 {
   transform: scale(1.05);
   filter: drop-shadow(0 0 45px rgba(255,180,80,0.95));
 }
-
+/* Screenshot styling and responsive tweaks remain same */
 .screenshot {
   margin-top: 14px;
   width: 100%;
@@ -231,17 +211,301 @@ h1 {
   transform: translateY(26px);
   transition: opacity .8s ease, transform .8s ease;
 }
-.screenshot.visible {
-  opacity: 1;
-  transform: translateY(0);
+.screenshot.visible { opacity: 1; transform: translateY(0); }
+
+.skills { margin-top: 16px; font-size: 14px; }
+.skills strong { display: block; margin-bottom: 6px; color: #ffbb55; }
+.skills span {
+  background: rgba(255,122,0,0.2);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 3px;
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+  position: relative;
+  cursor: help;
 }
-    <!-- PROJECT 6 -->
-    <section id="sqldatabase" class="card project">
-      <h3>SQL Training Database</h3>
+.skills span::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.skills span:hover::after { opacity: 1; }
+
+footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
+.muted { color: #ddd; }
+
+.linkedin-btn {
+  display: inline-block;
+  background: #0077b5;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0,119,181,0.4);
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+.linkedin-btn:hover {
+  background: #0091d5;
+  box-shadow: 0 0 25px rgba(0,119,181,0.6);
+  transform: scale(1.05);
+}
+
+/* Right-side navigator */
+.project-nav {
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  width: 173px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,122,0,0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 0 20px rgba(255,122,0,0.4);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+}
+.project-nav h4 {
+  color: #ffbb55;
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 16px;
+}
+.project-nav a {
+  display: block;
+  color: #f3f3f3;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+.project-nav a:hover {
+  background: rgba(255,122,0,0.25);
+  color: #ffbb55;
+}
+.project-nav a.active {
+  background: rgba(255,122,0,0.35);
+  color: #ffbb55;
+  box-shadow: 0 0 10px rgba(255,122,0,0.35) inset;
+}
+@media (max-width: 1200px) { .project-nav { display: none; } }
+  </style>
+</head>
+
+<body>
+  <nav class="project-nav">
+    <h4>Projects</h4>
+    <a href="#dronechat" id="lnk-dronechat">DroneShield Chatbot</a>
+    <a href="#annotation" id="lnk-annotation">AI Data Annotation</a>
+    <a href="#marketinfo" id="lnk-marketinfo">Market Email Automation</a>
+    <a href="#customersolutions" id="lnk-customersolutions">Customer Solutions KB</a>
+    <a href="#dispatchingtool" id="lnk-dispatchingtool">Dispatching Automation Tool</a>
+    <a href="#sqldatabase" id="lnk-sqldatabase">SQL Training DB</a>
+    <a href="#dataanalysis" id="lnk-dataanalysis">Data Analysis (coming soon)</a>
+    <a href="#salesflier" id="lnk-salesflier">Sales/Marketing Flier (coming soon)</a>
+  </nav>
+
+  <main class="wrap">
+    <h1>
+      Timothy Lonergan — AI & Automation Portfolio
+      <svg class="drone" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+        <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+        <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+        <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+        <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+        <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2"/>
+      </svg>
+    </h1>
+    <p class="subtitle">Projects showcasing automation, AI integration, and applied problem solving.</p>
+
+    <!-- ABOUT -->
+    <section class="card">
+      <h2>About Me</h2>
       <p>
-        Demonstrating the knowledge gained from earlier formal SQL education.  
-        This fully functional SQL database for a company to train their workforce on has been tested with both beginner and advanced queries to ensure full functionality.  
-        Includes a ready-to-use synthesised drone retailer dataset along with table seeding commands, all showcased in the SQL file.
+        I’m an AI and automation enthusiast with a background in customer operations management,
+        process design, data analysis, and workforce management. I focus on building intelligent tools
+        that improve efficiency, accuracy, and access to knowledge. This portfolio highlights my
+        transition into AI through applied projects like autonomous chatbots, data annotation pipelines,
+        and real-time information retrieval systems.
+      </p>
+    </section>
+
+    <!-- PROJECT 1 -->
+    <section id="dronechat" class="card project">
+      <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+        <img src="./droneshield_logo.png" alt="DroneShield Logo" class="logo-centered">
+      </div>
+      <style>
+        .logo-centered { height: 50px; filter: drop-shadow(0 0 25px rgba(255,122,0,0.7)); transition: all 0.4s ease-in-out; }
+        .logo-centered:hover { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(255,180,80,0.9)); }
+      </style>
+
+      <h3>DroneShield AI Chatbot</h3>
+      <p>
+        A custom chatbot leveraging OpenAI’s GPT-4 and light retrieval to answer company-specific questions
+        from DroneShield’s public website. Built with Streamlit and a branded UI, it falls back to verified
+        external info when context is missing.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://tims-droneshield-chatbot.streamlit.app/" target="_blank" rel="noopener">Open Live App</a>
+        <a class="btn" href="./AI_Chatbot_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes</a>
+        <a class="btn secondary" href="https://github.com/ProjectsforTim/Chatbot" target="_blank" rel="noopener">View Source</a>
+      </div>
+
+      <img class="screenshot" id="chatbotDemo" src="./chatbotdemo.png" alt="DroneShield Chat demo screenshot">
+
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Project Notes PDF</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="./AI_Chatbot_Key_Takeaways.pdf#view=FitH"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Prompt Engineering</span>
+        <span>Streamlit</span>
+        <span>Python</span>
+        <span>RAG (Retrieval-Augmented Generation)</span>
+        <span>OpenAI API Integration</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 2 -->
+    <section id="annotation" class="card project">
+      <h3>AI Data Annotation and Object Detection Model (final results write-up in progress)</h3>
+      <p>
+        Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Achieved 92% accuracy (mAP@0.5) using only 200 high-quality annotated images, demonstrating strong model performance and efficient dataset design.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
+      </div>
+      <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Data Annotation</span>
+        <span>Roboflow</span>
+        <span>YOLO Integration</span>
+        <span>Quality Assurance</span>
+        <span>AI Model Training</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 3 -->
+    <section id="marketinfo" class="card project">
+      <h3>Market-Sensitive Information Automation Daily Email</h3>
+      <p>
+        An automated daily news delivery system built in Google Colab that fetches and emails the latest market-relevant news using Google API + Python. Designed to streamline intelligence monitoring for subscribed users.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://colab.research.google.com/drive/1QJ9fHPLVOewKA4MGhOEiHEcKxARRBJLy" target="_blank">Open Colab Notebook</a>
+      </div>
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Prompt Engineering</span>
+        <span>Automation</span>
+        <span>Google Colab</span>
+        <span>Email API Integration</span>
+        <span>Python Scripting</span>
+      </div>
+    </section>
+    <!-- PROJECT 4 -->
+    <section id="customersolutions" class="card project">
+      <h3>Scaling Customer Solutions Knowledge Base</h3>
+      <p>
+        A strategic project proposal outlining how a defence technology company could scale its
+        customer service operations using a structured Knowledge Base and SOP framework.
+        The document demonstrates the design of tiered enquiry systems, verification flows,
+        and escalation protocols to support future team growth.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="./Scaling Customer Solutions SOPs and Knowledge Base.pdf" target="_blank" rel="noopener">
+          View Full Document (PDF)
+        </a>
+      </div>
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📄 Preview Document</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="./Scaling Customer Solutions SOPs and Knowledge Base.pdf#view=FitH"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Process Documentation</span>
+        <span>Knowledge Management</span>
+        <span>Standard Operating Procedures</span>
+        <span>Organisational Design</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 5 -->
+    <section id="dispatchingtool" class="card project">
+      <h3>Dispatching Automation and Compliance Standardisation</h3>
+      <p>
+        A simple yet highly instrumental Excel-based tool that standardised and automated the dispatch note-taking process for operations staff.
+        It rearranged and concatenated operational data for compliance-ready note formats, eliminating manual data entry and improving efficiency by over 60%.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="./Dispatching_Automation_Tool.xlsx" target="_blank" rel="noopener">
+          Open Excel File
+        </a>
+      </div>
+
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer;font-weight:600;color:#ffbb55;padding:8px 0;">📊 Preview Spreadsheet</summary>
+        <div style="margin-top:10px;">
+          <iframe
+            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fprojectsfortim.github.io%2Fportfolio%2FDispatching_Automation_Tool.xlsx"
+            width="100%" height="500px"
+            style="border-radius:12px; box-shadow:0 0 25px rgba(255,122,0,0.4); border:none;"></iframe>
+        </div>
+      </details>
+
+      <div class="skills">
+        <strong>Demonstrated Skills:</strong>
+        <span>Excel Automation</span>
+        <span>Data Transformation</span>
+        <span>Compliance Design</span>
+        <span>Operational Efficiency</span>
+        <span>Workflow Optimization</span>
+      </div>
+    </section>
+
+    <!-- PROJECT 6 (UPDATED) -->
+    <section id="sqldatabase" class="card project">
+      <h3>SQL Training Database Project</h3>
+      <p>
+        Demonstrating the knowledge gained from earlier formal SQL education. This fully functional SQL database for a company to train their workforce on has been tested with both beginner and advanced queries to ensure full functionality. Ready-to-use synthesised drone retailer dataset along with table seeding commands showcased in the SQL file.
       </p>
 
       <div class="buttons">
@@ -253,15 +517,15 @@ h1 {
         </a>
       </div>
 
-      <img class="screenshot visible" id="Advanced_query_test" src="./Advanced_query_test.png" alt="Advanced SQL query test screenshot">
+      <img class="screenshot visible" id="SQL_DB_Screenshot" src="./Advanced_query_test.png" alt="Advanced SQL query test screenshot">
 
       <div class="skills">
         <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Designing realistic relational data structures for business training use.">Database Design</span>
-        <span data-tooltip="Writing and validating beginner-to-advanced SQL queries.">SQL Query Writing</span>
-        <span data-tooltip="Creating, seeding, and maintaining SQL tables for demonstration.">Data Seeding</span>
-        <span data-tooltip="Developing educational datasets for SQL practice.">Training Dataset Creation</span>
-        <span data-tooltip="Testing database performance and logical consistency.">Database Testing & Validation</span>
+        <span>SQL Query Design</span>
+        <span>Database Schema Creation</span>
+        <span>Data Normalisation</span>
+        <span>Relational Joins</span>
+        <span>Beginner to Advanced Query Testing</span>
       </div>
     </section>
 
@@ -281,6 +545,7 @@ h1 {
         A striking one-page flier concept designed for counter-UAS solution providers, highlighting the civilian drone challenge and delivering a concise, persuasive call to action.
       </p>
     </section>
+
     <!-- CONTACT -->
     <section style="text-align:center; margin-top:40px;">
       <a class="linkedin-btn" href="https://www.linkedin.com/in/timothy-lonergan-2b6156197" target="_blank" rel="noopener">
@@ -292,7 +557,6 @@ h1 {
   </main>
 
   <script>
-    // Fade-in effect for the main screenshot
     const shot = document.getElementById('chatbotDemo');
     if (shot) {
       const obs = new IntersectionObserver((entries) => {
@@ -301,14 +565,12 @@ h1 {
       obs.observe(shot);
     }
 
-    // Ensure tooltips exist for all skill chips
     document.querySelectorAll('.skills span').forEach(span => {
       if (!span.dataset.tooltip || span.dataset.tooltip.trim() === '') {
         span.dataset.tooltip = span.textContent.trim();
       }
     });
 
-    // Right-side nav highlighting for section in view
     const sections = [
       'dronechat',
       'annotation',
