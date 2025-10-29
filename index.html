@@ -775,7 +775,6 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   let lastScrollY = 0;
 
   window.addEventListener('scroll', () => {
-    if (!follower || !trail) return;
 
     const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     const xBase = (window.innerWidth / 2) - 30;
