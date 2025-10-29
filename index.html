@@ -59,13 +59,13 @@
   width: 55px;
   height: 55px;
   filter: drop-shadow(0 0 10px rgba(255,150,50,0.8));
-animation:
-  droneFlyLeft 7s ease-in-out 1,
-  droneHoverLeft 4s ease-in-out infinite 7s,
-
-
+  animation:
+    droneFlyLeft 7s ease-in-out 1,
+    droneHoverLeft 4s ease-in-out infinite 7s;
+  /* ✅ semicolon added here */
   z-index: 5;
 }
+
 .drone-secondary svg {
   width: 100%;
   height: 100%;
@@ -89,6 +89,7 @@ animation:
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 /* existing theme styles */
 :root {
   --card-bg: rgba(0,0,0,0.55);
