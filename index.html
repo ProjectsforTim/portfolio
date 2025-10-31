@@ -92,8 +92,8 @@
     /* THIRD DRONE — HOVERING RIGHT */
 .drone-tertiary {
   position: absolute;
-  top: 80px;       /* adjust vertical position */
-  right: -380px;   /* start just off-screen on the right */
+  top: 80px;       
+  right: -380px;   
   width: 55px;
   height: 55px;
   filter: drop-shadow(0 0 10px rgba(255,150,50,0.8));
@@ -179,7 +179,28 @@
     .drone-follower {
   transition: transform 0.3s ease-out;
 }
+    
+/* Second Follower Drone (Independent Left-side version) */
+.drone-follower-left-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Keeps it behind project cards */
+}
 
+.drone-follower-left {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 12px rgba(255,150,50,0.8));
+  transform-origin: center;
+  transition: transform 0.4s ease-out;
+}
+
+    
 /* existing theme styles */
 :root {
   --card-bg: rgba(0,0,0,0.55);
@@ -705,7 +726,22 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
   </svg>
 </div>
+<!-- Second Follower Drone (Left Side) -->
+<div class="drone-follower-left-wrapper">
+  <svg class="drone-follower-left" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="6" fill="#ffbb55" />
+    <circle cx="12" cy="12" r="4" fill="#ff7a00" />
+    <circle cx="52" cy="12" r="4" fill="#ff7a00" />
+    <circle cx="12" cy="52" r="4" fill="#ff7a00" />
+    <circle cx="52" cy="52" r="4" fill="#ff7a00" />
+    <line x1="12" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="52" y1="12" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="12" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+    <line x1="52" y1="52" x2="32" y2="32" stroke="#ffbb55" stroke-width="2" />
+  </svg>
+</div>
 
+  
 <script>
   // Fade-in effect for the main screenshot
   const shot = document.getElementById('chatbotDemo');
@@ -816,6 +852,45 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     trail.style.transform = `translate(${x - 100}px, ${y + hoverY + 20}px) rotate(${rotation - 5}deg) scaleX(1.5)`;
   });
 </script>
+  <script>
+  const leftFollower = document.querySelector('.drone-follower-left');
+  const minYLeft = window.innerHeight * 0.35;
+  const maxYLeft = window.innerHeight * 0.75;
+
+  let hoverTimerLeft = 0;
+  let isHoveringLeft = false;
+  let lastScrollYLeft = 0;
+
+  window.addEventListener('scroll', () => {
+    if (!leftFollower) return;
+
+    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const xBaseLeft = (window.innerWidth / 4); // Keeps it in left-center region
+    const sineWaveLeft = Math.sin(scrollPercent * Math.PI * 2.5) * 250; // left-side movement
+    const yWaveLeft = Math.abs(Math.cos(scrollPercent * Math.PI * 2)) * (maxYLeft - minYLeft) / 2;
+    const yLeft = minYLeft + yWaveLeft;
+
+    // Random hover
+    if (Math.abs(window.scrollY - lastScrollYLeft) < 2 && !isHoveringLeft) {
+      hoverTimerLeft++;
+      if (hoverTimerLeft > 50) {
+        isHoveringLeft = true;
+        setTimeout(() => { isHoveringLeft = false; hoverTimerLeft = 0; }, 2500 + Math.random() * 1500);
+      }
+    } else {
+      hoverTimerLeft = 0;
+    }
+    lastScrollYLeft = window.scrollY;
+
+    const hoverXLeft = isHoveringLeft ? (Math.random() - 0.5) * 20 : 0;
+    const hoverYLeft = isHoveringLeft ? (Math.random() - 0.5) * 15 : 0;
+    const rotationLeft = scrollPercent * 720 + (isHoveringLeft ? Math.random() * 10 : 0);
+    const xLeft = xBaseLeft + sineWaveLeft + hoverXLeft;
+
+    leftFollower.style.transform = `translate(${xLeft}px, ${yLeft + hoverYLeft}px) rotate(${rotationLeft}deg)`;
+  });
+</script>
+
 
 </body>
 </html>
