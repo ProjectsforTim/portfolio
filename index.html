@@ -608,7 +608,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Model V1 included 200 high-quality annotations, while Model V2 significantly expanded the dataset and annotation quality with over 1,200 images.
     <br><br>
     • <b>Model V1:</b> Precision <span style="color:#ff8000;">0.89</span> | Recall <span style="color:#ff8000;">0.91</span> | mAP@0.5 <span style="color:#ff8000;">0.92</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.64</span><br>
-    • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span class="glow-number">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.74</span>
+    • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span class="glow-number">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.795</span>
   </p>
 <details class="performance-details">
   <summary>📊 What does it all mean?</summary>
@@ -617,15 +617,17 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
       <b>Precision:</b> <span class="metric" data-tooltip="Measures how many detected drones were correct (TP / (TP + FP)).">0.96</span><br>
       <b>Recall:</b> <span class="metric" data-tooltip="Measures how many actual drones were detected (TP / (TP + FN)).">0.95</span><br>
       <b>mAP@0.5:</b> <span class="metric" data-tooltip="Mean Average Precision at 50% IoU threshold (IoU = Intersection over Union aka how much predicted and actual bounding boxes overlap).">0.979</span><br>
-      <b>mAP@0.5–0.95:</b> <span class="metric" data-tooltip="Mean Average Precision across IoU thresholds from 0.5 to 0.95, tougher to achieve but more holistic metric.">0.74</span>
+      <b>mAP@0.5–0.95:</b> <span class="metric" data-tooltip="Mean Average Precision across IoU thresholds from 0.5 to 0.95, tougher to achieve but more holistic metric.">0.795</span>
     </p>
   </div>
 </details>
   <div class="buttons">
-    <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
+    <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook (Model V1)</a>
+     <a class="btn" href="https://colab.research.google.com/drive/1VBH4bsCI-Fw5TE1TRElXo27TUZCfJc2W#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook (Model V2)</a>
     <a class="btn" href="./AI_Object_Detection_Model_Key_Takeaways.pdf" target="_blank" rel="noopener">
       Project Results (Model V1)
     </a>
+    <a class="btn" href="https://colab.research.google.com/drive/1VBH4bsCI-Fw5TE1TRElXo27TUZCfJc2W#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Project Results (Model V2 Placeholder)</a>
   </div>
 
   <img class="screenshot visible" id="mAPResultcomparrison" src="./MAPV1vsV2.png" alt="Model Accuracy Results2 (mAP@0.5v2andV1)">
