@@ -271,6 +271,13 @@ h1 {
   color: #f0f0f0;
   border: 1px solid #444;
 }
+ .caption {
+  font-size: 0.9em;
+  color: #ccc;
+  text-align: center;
+  margin: 6px 0 18px 0;
+  font-style: italic;
+}   
     #dronechat .logo {
   width: 210px;   
   height: auto;
@@ -550,37 +557,45 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     </section>
        <!-- PROJECT 2 -->
     <section id="annotation" class="card project">
-      <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
-  <img src="./Robologo.png" alt="Roboflow Logo" class="logo">
-</div>
-      <h3>AI Data Annotation and Object Detection Model (V2 final write up in progress)</h3>
-      <p>
-  Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Model V1 included 200 high-quality annotations, while Model V2 significantly expanded the dataset and annotation quality with over 1,200 images.
-  <br><br>
-  • <b>Model V1:</b> Precision <span style="color:#ff8000;">0.89</span> | Recall <span style="color:#ff8000;">0.91</span> | mAP@0.5 <span style="color:#ff8000;">0.92</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.64</span><br>
-  • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span class="glow-number">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.74</span>
-</p>
+  <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
+    <img src="./Robologo.png" alt="Roboflow Logo" class="logo">
+  </div>
+  <h3>AI Data Annotation and Object Detection Model (V2 final write up in progress)</h3>
+  <p>
+    Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Model V1 included 200 high-quality annotations, while Model V2 significantly expanded the dataset and annotation quality with over 1,200 images.
+    <br><br>
+    • <b>Model V1:</b> Precision <span style="color:#ff8000;">0.89</span> | Recall <span style="color:#ff8000;">0.91</span> | mAP@0.5 <span style="color:#ff8000;">0.92</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.64</span><br>
+    • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span class="glow-number">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.74</span>
+  </p>
 
-      <div class="buttons">
-        <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
-        <a class="btn" href="./AI_Object_Detection_Model_Key_Takeaways.pdf" target="_blank" rel="noopener">
+  <div class="buttons">
+    <a class="btn" href="https://colab.research.google.com/drive/1JtoRteMlE2KbhiwVHtgJV41LP9OUWLi8#scrollTo=bgmusWkjB0_e" target="_blank" rel="noopener">Open Colab Notebook</a>
+    <a class="btn" href="./AI_Object_Detection_Model_Key_Takeaways.pdf" target="_blank" rel="noopener">
       Project Results (Model V1)
     </a>
-      </div>
-      <img class="screenshot visible" id="mAPResultcomparrison" src="./MAPV1vsV2.png" alt="Model Accuracy Results2 (mAP@0.5v2andV1)">
-      <img class="screenshot visible" id="mAPResult2" src="./MAPV2.png" alt="Model Accuracy Results2 (mAP@0.5v2)">
- <img class="screenshot visible" id="mAPResult" src="./mAP0.5.png" alt="Model Accuracy Results (mAP@0.5)">
-      <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
+  </div>
 
-      <div class="skills">
-        <strong>Demonstrated Skills:</strong>
-        <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
-        <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
-        <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
-        <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
-        <span data-tooltip="Training of accurate and precise AI models capable of real world application.">AI Model Training</span>
-      </div>
-    </section>
+  <img class="screenshot visible" id="mAPResultcomparrison" src="./MAPV1vsV2.png" alt="Model Accuracy Results2 (mAP@0.5v2andV1)">
+  <p class="caption">mAP@0.5 comparison between Model V1 and V2 — V2 clearly outperforms early, peaking at 0.979 by epoch 165.</p>
+
+  <img class="screenshot visible" id="mAPResult2" src="./MAPV2.png" alt="Model Accuracy Results2 (mAP@0.5v2)">
+  <p class="caption">Model V2 reached mAP@0.5 values by epoch 13 that V1 didn’t reach until epoch 30 — achieving 0.979 with 1.2k images, rivaling much larger datasets.</p>
+
+  <img class="screenshot visible" id="mAPResult" src="./mAP0.5.png" alt="Model Accuracy Results (mAP@0.5)">
+  <p class="caption">Model V1 performed impressively for its 200-image dataset, peaking at mAP@0.5 = 0.92 over 50 epochs.</p>
+
+  <img class="screenshot visible" id="Drone_Annotation" src="./Drone_Annotation.png" alt="Drone Annotation screenshot">
+
+  <div class="skills">
+    <strong>Demonstrated Skills:</strong>
+    <span data-tooltip="Tagging and labeling images for ML dataset training.">Data Annotation</span>
+    <span data-tooltip="Leveraging Roboflow for annotation and dataset management.">Roboflow</span>
+    <span data-tooltip="Training object detection models like YOLOv5 and YOLOv8.">YOLO Integration</span>
+    <span data-tooltip="Ensuring dataset accuracy through systematic checks.">Quality Assurance</span>
+    <span data-tooltip="Training of accurate and precise AI models capable of real world application.">AI Model Training</span>
+  </div>
+</section>
+
 <!-- PROJECT 3 -->
     <section id="sqldatabase" class="card project">
   <div style="display:flex; justify-content:center; align-items:center; margin:16px 0;">
