@@ -237,6 +237,20 @@ h1 {
    position: relative; 
   z-index: 1; 
 }
+  .glow-number {
+    color: #ff8000;
+    text-shadow: 0 0 10px rgba(255,128,0,0.9), 0 0 20px rgba(255,128,0,0.5);
+    transition: text-shadow 0.4s ease-in-out;
+  }
+  .glow-number:hover {
+    text-shadow: 0 0 20px rgba(255,128,0,1), 0 0 35px rgba(255,128,0,0.8);
+    animation: pulseGlow 1.5s infinite alternate;
+  }
+  @keyframes pulseGlow {
+    from { text-shadow: 0 0 15px rgba(255,128,0,1), 0 0 30px rgba(255,128,0,0.8); }
+    to { text-shadow: 0 0 25px rgba(255,160,0,1), 0 0 45px rgba(255,160,0,0.9); }
+  }
+
 .project { transition: transform .2s ease, box-shadow .2s ease; }
 .project:hover { transform: scale(1.015); box-shadow: 0 0 40px rgba(255,180,80,0.9); }
 .project h3 { margin: 6px 0 10px; color: var(--accent); }
@@ -544,7 +558,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
   Developed a Roboflow-powered image annotation project to train a custom object detection model for drones. Model V1 included 200 high-quality annotations, while Model V2 significantly expanded the dataset and annotation quality with over 1,200 images.
   <br><br>
   • <b>Model V1:</b> Precision <span style="color:#ff8000;">0.89</span> | Recall <span style="color:#ff8000;">0.91</span> | mAP@0.5 <span style="color:#ff8000;">0.92</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.64</span><br>
-  • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span style="color:#ff8000; text-shadow:0 0 8px rgba(255,128,0,0.7);">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.74</span>
+  • <b>Model V2:</b> Precision <span style="color:#ff8000;">0.96</span> | Recall <span style="color:#ff8000;">0.95</span> | mAP@0.5 <span class="glow-number">0.979</span> | mAP@0.5–0.95 <span style="color:#ff8000;">0.74</span>
 </p>
 
       <div class="buttons">
