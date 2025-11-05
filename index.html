@@ -620,12 +620,13 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 <details class="performance-details">
   <summary>📊 What does it all mean?</summary>
   <div class="metrics">
-    <p>
-      <b>Precision:</b> <span class="metric" data-tooltip="Measures how many detected drones were correct (TP / (TP + FP)).">0.96</span><br>
-      <b>Recall:</b> <span class="metric" data-tooltip="Measures how many actual drones were detected (TP / (TP + FN)).">0.95</span><br>
-      <b>mAP@0.5:</b> <span class="metric" data-tooltip="Mean Average Precision at 50% IoU threshold (IoU = Intersection over Union aka how much predicted and actual bounding boxes overlap).">0.979</span><br>
-      <b>mAP@0.5–0.95:</b> <span class="metric" data-tooltip="Mean Average Precision across IoU thresholds from 0.5 to 0.95, tougher to achieve but more holistic metric.">0.795</span>
-    </p>
+  <p>
+    <b>Precision:</b> <span class="metric">0.96</span> — Percentage of detected drones that were correctly identified.<br>
+    <b>Recall:</b> <span class="metric">0.95</span> — Percentage of all drones in the dataset that the model successfully detected.<br>
+    <b>mAP@0.5:</b> <span class="metric">0.979</span> — Model accuracy when predicted bounding boxes overlap the actual boxes by at least 50%.<br>
+    <b>mAP@0.5–0.95:</b> <span class="metric">0.795</span> — Average accuracy across multiple overlap thresholds (50%–95%), representing overall robustness.
+  </p>
+</div>
   </div>
 </details>
   <div class="buttons">
