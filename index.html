@@ -266,6 +266,36 @@ h1 {
   text-decoration: none;
   box-shadow: 0 0 18px rgba(255,122,0,0.35);
 }
+    .btn.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ff7a00, #ffbb55);
+  background-size: 200% 100%;
+  transition: background-position 0.5s ease;
+}
+
+.btn.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: sheenMove 5s infinite;
+}
+
+@keyframes sheenMove {
+  0%   { left: -75%; }
+  20%  { left: 125%; }
+  100% { left: 125%; }
+}
 .btn.secondary {
   background: #222;
   color: #f0f0f0;
@@ -633,7 +663,7 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <a class="btn" href="./AI_Object_Detection_Model_Key_Takeaways.pdf" target="_blank" rel="noopener">
       Project Results (Model V1)
     </a>
-    <a class="btn" href="./AI_Object_Detection_Model_Key_Takeaways_V2.pdf" target="_blank" rel="noopener">Project Results (Model V2)</a>
+    <a class="btn shimmer" href="./AI_Object_Detection_Model_Key_Takeaways_V2.pdf" target="_blank" rel="noopener">Project Results (Model V2)</a>
     <a class="btn secondary" href="https://github.com/ProjectsforTim/Drone_Threat_Detection_V1" target="_blank" rel="noopener">View Source (Model V1)</a>
      <a class="btn secondary" href="https://github.com/ProjectsforTim/Drone_Threat_Detection_V2" target="_blank" rel="noopener">View Source (Model V2)</a>
   </div>
