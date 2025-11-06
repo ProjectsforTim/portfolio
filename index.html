@@ -199,7 +199,24 @@
   transform-origin: center;
   transition: transform 0.4s ease-out;
 }
+/* visual upgrade — smoother drone glow blending */
+.drone, .drone-secondary, .drone-tertiary, .drone-quaternary, .drone-follower {
+  filter:
+    drop-shadow(0 0 12px rgba(255,140,40,0.45))
+    drop-shadow(0 0 22px rgba(255,120,0,0.35))
+    drop-shadow(0 0 45px rgba(255,100,0,0.25));
+  opacity: 0.95;
+}
 
+/*  gentle pulse to simulate energy flux */
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(255,150,50,0.45)); }
+  50% { filter: drop-shadow(0 0 25px rgba(255,160,80,0.6)); }
+}
+
+.drone svg, .drone-secondary svg, .drone-tertiary svg, .drone-quaternary svg, .drone-follower svg {
+  animation: glowPulse 5s ease-in-out infinite;
+}
     
 /* existing theme styles */
 :root {
