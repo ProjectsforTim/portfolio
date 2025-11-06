@@ -216,6 +216,23 @@ html, body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   scroll-behavior: smooth;
 }
+    /* Subtle drone texture backdrop (Option A) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./A_2D_digital_graphic_design_features_a_textured,_d.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center left, center right;
+  opacity: 0.06; /* adjust between 0.04–0.10 for visibility */
+  pointer-events: none;
+  z-index: 0;
+}
+
 .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
 
 h1 {
