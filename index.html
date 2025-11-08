@@ -266,6 +266,15 @@ h1 {
   text-shadow: 0 2px 8px rgba(255,150,50,0.8);
   position: relative;
 }
+
+.small-screenshot {
+  width: 75%;
+  display: block;
+  margin: 14px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
     .subhead{
   margin:16px 0 8px;
   color:var(--accent);
@@ -789,6 +798,9 @@ That line marks the point where the system automatically flags an anomaly in the
     <figcaption class="caption">Varied RF patterns to improve generalisation and reduce false positives.</figcaption>
   </figure>
 </div>
+  <strong>Anomalous Signal Examples Used After Training:</strong>
+  <img class="screenshot visible small-screenshot" id="rfAnomalousExample" src="./try.png" alt="Anomalous RF signal example used to test the model">
+  <p class="caption">Highly anomalous RF signals fed to the autoencoder to test its ability to detect them as anomalous.</p>
 
   <div class="skills">
     <strong>Demonstrated Skills:</strong>
