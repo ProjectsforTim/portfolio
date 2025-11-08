@@ -238,7 +238,7 @@ html, body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   scroll-behavior: smooth;
 }
-    /* Subtle drone texture backdrop (Option A) */
+    /* Subtle drone texture backdrop */
 body::before {
   content: "";
   position: fixed;
@@ -266,6 +266,26 @@ h1 {
   text-shadow: 0 2px 8px rgba(255,150,50,0.8);
   position: relative;
 }
+    .subhead{
+  margin:16px 0 8px;
+  color:var(--accent);
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+.pattern-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.pattern-grid figure{ margin:0; }
+.pattern-grid .screenshot{ width:100%; margin:0; }
+
+@media (min-width: 900px){
+  .pattern-grid{ grid-template-columns:1fr 1fr; }
+}
+
 .subtitle { text-align: center; margin: 0 0 28px; color: #f0f0f0; }
 .card {
   background: var(--card-bg);
@@ -756,9 +776,20 @@ Signals from known, “normal” sources (green) produce very low reconstruction
 Signals it hasn’t seen before, such as interference or new transmissions (orange) show much higher reconstruction error, crossing the dashed threshold line.
 That line marks the point where the system automatically flags an anomaly in the RF spectrum, allowing potential drone or jammer activity to be detected in real time.
   </p>
-  <strong>RF Spectrum Patterns Used to Train the Baseline Model:</strong>
-   <img class="screenshot visible" id="autoencoderScreenshot" src="./try3.png" alt="Autoencoder anomaly detection training data">
-   <img class="screenshot visible" id="autoencoderScreenshot" src="./try2.png" alt="Autoencoder anomaly detection training data2">
+<h4 class="subhead">RF Spectrum Patterns Used to Train the Baseline Model</h4>
+<div class="pattern-grid">
+  <figure>
+    <img class="screenshot visible" id="rfPatternNormal" src="./try3.png"
+         alt="Baseline RF spectrograms used for training (normal patterns)">
+    <figcaption class="caption">Baseline/normal RF patterns (used to form the autoencoder’s reconstruction baseline).</figcaption>
+  </figure>
+  <figure>
+    <img class="screenshot visible" id="rfPatternAnom" src="./try2.png"
+         alt="Alternative RF spectrograms used for training (varied patterns)">
+    <figcaption class="caption">Varied RF patterns to improve generalisation and reduce false positives.</figcaption>
+  </figure>
+</div>
+
   <div class="skills">
     <strong>Demonstrated Skills:</strong>
     <span data-tooltip="Training neural networks for unsupervised learning tasks.">Autoencoders</span>
