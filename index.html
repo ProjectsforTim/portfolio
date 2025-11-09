@@ -1052,27 +1052,28 @@ That line marks the point where the system automatically flags an anomaly in the
   ];
   const linkById = id => document.getElementById('lnk-' + id);
 
-  const highlightObserver = new IntersectionObserver((entries) => {
-    let bestEntry = null;
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
-          bestEntry = entry;
-        }
+ const highlightObserver = new IntersectionObserver((entries) => {
+  let bestEntry = null;
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+        bestEntry = entry;
       }
-    });
-    if (bestEntry) {
-      const id = bestEntry.target.id;
-      sections.forEach(s => {
-        const l = linkById(s);
-        if (l) l.classList.toggle('active', s === id);
-      });
     }
-  }, {
-    root: null,
-    threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
-    rootMargin: "0px 0px -30% 0px"
   });
+  if (bestEntry) {
+    const id = bestEntry.target.id;
+    sections.forEach(s => {
+      const l = linkById(s);
+      if (l) l.classList.toggle('active', s === id);
+    });
+  }
+}, {
+  root: null,
+  threshold: [0.1, 0.25, 0.5],
+  rootMargin: "0px 0px -45% 0px"  
+});
+
 
   sections.forEach(id => {
     const el = document.getElementById(id);
