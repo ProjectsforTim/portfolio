@@ -1052,27 +1052,31 @@ That line marks the point where the system automatically flags an anomaly in the
   ];
   const linkById = id => document.getElementById('lnk-' + id);
 
- const highlightObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const id = entry.target.id;
-    const link = linkById(id);
+// === Improved highlight observer ===
+const highlightObserver = new IntersectionObserver((entries) => {
+  let currentSection = null;
 
-    if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
-      // Mark this link active when section passes 25% visibility
-      sections.forEach(s => {
-        const l = linkById(s);
-        if (l) l.classList.toggle('active', s === id);
-      });
-    } else if (entry.boundingClientRect.top > 0 && !entry.isIntersecting) {
-      // If scrolling upward and section is out of view, remove its highlight
-      if (link) link.classList.remove('active');
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (!currentSection || entry.intersectionRatio > currentSection.intersectionRatio) {
+        currentSection = entry;
+      }
     }
   });
+
+  if (currentSection) {
+    const id = currentSection.target.id;
+    sections.forEach(s => {
+      const link = linkById(s);
+      if (link) link.classList.toggle('active', s === id);
+    });
+  }
 }, {
   root: null,
-  threshold: [0.25, 0.5, 0.75],
-  rootMargin: "-25% 0px -50% 0px" 
+  threshold: [0.15, 0.4, 0.65],
+  rootMargin: "-20% 0px -35% 0px" // balances highlight area mid-screen
 });
+
 
 
 
