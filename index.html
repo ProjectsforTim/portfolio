@@ -804,7 +804,16 @@ That line marks the point where the system automatically flags an anomaly in the
   <strong>Anomalous Signal Examples Used After Training:</strong>
   <img class="screenshot visible small-screenshot" id="rfAnomalousExample" src="./try.png" alt="Anomalous RF signal example used to test the model">
   <p class="caption">Highly anomalous RF signals fed to the autoencoder after training. The idea was for most of these signals to sit over the thresho9ld line toward the right of the chart.</p>
-
+<details class="performance-details">
+  <summary>📶 Interpreting These Signals</summary>
+  <div class="metrics">
+    <p>
+      <b>Frequency:</b> Represents how often the signal oscillates. In RF analysis, this determines the signal’s carrier band (e.g., 2.4 GHz or 5.8 GHz).<br>
+      <b>Time:</b> Displays how the signal evolves or changes over time, revealing bursts, modulations, or patterns of transmission activity.<br>
+      <b>Power:</b> Indicates the signal’s strength or amplitude in decibels (dB), showing how intense the transmission is within a given band.
+    </p>
+  </div>
+</details>
   <div class="skills">
     <strong>Demonstrated Skills:</strong>
     <span data-tooltip="Training neural networks for unsupervised learning tasks.">Autoencoders</span>
