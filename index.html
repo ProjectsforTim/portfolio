@@ -798,8 +798,15 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
 <details class="performance-details">
   <summary>📶 Interpreting These Signals</summary>
   <div class="metrics">
+    <p>
+      <b>Frequency:</b> Represents how often the signal oscillates. In RF analysis, this determines the signal’s carrier band (e.g., 2.4 GHz or 5.8 GHz).<br>
+      <b>Time:</b> Displays how the signal evolves or changes over time, revealing bursts, modulations, or patterns of transmission activity.<br>
+      <b>Power:</b> Indicates the signal’s strength or amplitude in decibels (dB), showing how intense the transmission is within a given band.
+    </p>
     </div>
   <img class="screenshot visible" id="Confusionmatrix" src="./RF_Autoencoder_Confusion_Matrix" alt="Autoencoder confusion matrix screenshot">
+  <p class="caption">Matrix illustrating clear separation between normal and anomalous RF signals, with high recall and low error rates.</p>
+ <p>
   <img class="screenshot visible" id="autoencoderScreenshot" src="./RF_Anomaly_Heatmap2.png" alt="Autoencoder anomaly detection heatmap screenshot">
 <p class="caption">As expected, the autoencoder correctly identifies most abnormal signals; however, some anomalies still slip below the detection threshold, while a few normal signals are falsely flagged as outliers.</p>
  <p>
@@ -809,13 +816,6 @@ Signals from known, “normal” sources (green) produce very low reconstruction
 Signals it hasn’t seen before, such as interference or new transmissions (orange) show much higher reconstruction error, crossing the dashed threshold line.
 That line marks the point where the system automatically flags an anomaly in the RF spectrum, allowing potential drone or jammer activity to be detected in real time.
   </p>
-
-    <p>
-      <b>Frequency:</b> Represents how often the signal oscillates. In RF analysis, this determines the signal’s carrier band (e.g., 2.4 GHz or 5.8 GHz).<br>
-      <b>Time:</b> Displays how the signal evolves or changes over time, revealing bursts, modulations, or patterns of transmission activity.<br>
-      <b>Power:</b> Indicates the signal’s strength or amplitude in decibels (dB), showing how intense the transmission is within a given band.
-    </p>
-  </div>
 </details>
   <div class="skills">
     <strong>Demonstrated Skills:</strong>
