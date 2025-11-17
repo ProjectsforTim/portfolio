@@ -779,16 +779,6 @@ footer { text-align: center; opacity: .85; font-size: 13px; margin-top: 42px; }
     <a class="btn" href="./RF_Autoencoder_Key_Takeaways.pdf" target="_blank" rel="noopener">Project Notes (Placeholder)</a>
     <a class="btn secondary" href="https://github.com/ProjectsforTim/AI_RF_Anomaly_Autoencoder" target="_blank" rel="noopener">View Source (Placeholder)</a>
   </div>
-
-  <img class="screenshot visible" id="autoencoderScreenshot" src="./RF_Anomaly_Heatmap2.png" alt="Autoencoder anomaly detection heatmap screenshot">
-<p class="caption">As expected, the autoencoder correctly identifies most abnormal signals; however, some anomalies still slip below the detection threshold, while a few normal signals are falsely flagged as outliers.</p>
- <p>
-  This chart visualises how the AI model learns to tell apart normal and abnormal radio activity.
-Each bar represents how well the model was able to reconstruct a signal it was shown.
-Signals from known, “normal” sources (green) produce very low reconstruction error, meaning the model easily recognises them.
-Signals it hasn’t seen before, such as interference or new transmissions (orange) show much higher reconstruction error, crossing the dashed threshold line.
-That line marks the point where the system automatically flags an anomaly in the RF spectrum, allowing potential drone or jammer activity to be detected in real time.
-  </p>
 <h4 class="subhead">RF Spectrum Patterns Used to Train the Baseline Model</h4>
 <div class="pattern-grid">
   <figure>
@@ -808,6 +798,16 @@ That line marks the point where the system automatically flags an anomaly in the
 <details class="performance-details">
   <summary>📶 Interpreting These Signals</summary>
   <div class="metrics">
+  <img class="screenshot visible" id="autoencoderScreenshot" src="./RF_Anomaly_Heatmap2.png" alt="Autoencoder anomaly detection heatmap screenshot">
+<p class="caption">As expected, the autoencoder correctly identifies most abnormal signals; however, some anomalies still slip below the detection threshold, while a few normal signals are falsely flagged as outliers.</p>
+ <p>
+  This chart visualises how the AI model learns to tell apart normal and abnormal radio activity.
+Each bar represents how well the model was able to reconstruct a signal it was shown.
+Signals from known, “normal” sources (green) produce very low reconstruction error, meaning the model easily recognises them.
+Signals it hasn’t seen before, such as interference or new transmissions (orange) show much higher reconstruction error, crossing the dashed threshold line.
+That line marks the point where the system automatically flags an anomaly in the RF spectrum, allowing potential drone or jammer activity to be detected in real time.
+  </p>
+
     <p>
       <b>Frequency:</b> Represents how often the signal oscillates. In RF analysis, this determines the signal’s carrier band (e.g., 2.4 GHz or 5.8 GHz).<br>
       <b>Time:</b> Displays how the signal evolves or changes over time, revealing bursts, modulations, or patterns of transmission activity.<br>
